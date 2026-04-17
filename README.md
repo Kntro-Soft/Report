@@ -320,6 +320,38 @@ El equipo cree que la implementación de una arquitectura de aislamiento de dato
 
 ## 1.3. Segmentos objetivos
 
+**Segmento 1: Líder Técnico de Startup**
+
+**Descripción:**
+
+Este segmento representa al motor técnico y estratégico de empresas tecnológicas en etapa de crecimiento. Son profesionales que cumplen roles híbridos entre la gestión de producto y el desarrollo.
+Su principal motivación es la velocidad de entrega y la precisión técnica. Se frustran al perder tiempo valioso en la documentación manual tras reuniones intensas y al descubrir "deuda de requisitos" solo cuando ya están en plena fase de codificación. Buscan una herramienta que les permita pasar de la conversación al código sin fricciones.
+
+**Características Demográficas (Perfil Inferido):**
+
+| Aspecto                  | Detalle                                                                    |
+|--------------------------|----------------------------------------------------------------------------|
+| Rango de Edad            | 30 - 35 años                                                               |
+| Nivel Educativo          | Universitario o Postgrado (Ingeniería de Software, Sistemas o Computación) |
+| Entorno Laboral          | Startups, ambientes ágiles, trabajo remoto o híbrido                       |
+| Familiaridad Tecnológica | Nativo digital; uso experto de APIs, LLMs, y herramientas como Jira/Notion |
+
+**Segmento 2: Analista de Sistemas Enterprise**
+
+**Descripción:**
+
+Este segmento representa al profesional encargado de la gobernanza de requisitos en grandes corporaciones o Software Factories. Su enfoque principal es la estandarización y la mitigación de riesgos.
+Deben asegurar que cada requerimiento del cliente esté perfectamente documentado en formatos rigurosos como Gherkin para su posterior pase a desarrollo y testing (QA). Actualmente, su mayor dolor es la carga operativa de procesar horas de grabaciones para extraer criterios de aceptación, enfrentando el riesgo de malinterpretar la visión del cliente por falta de validación inmediata en la reunión.
+
+**Características Demográficas (Perfil Inferido):**
+
+| Aspecto                  | Detalle                                                                                             |
+|--------------------------|-----------------------------------------------------------------------------------------------------|
+| Rango de Edad            | 30 - 45 años                                                                                        |
+| Nivel Educativo          | Universitario o Postgrado (Gestión de Proyectos, Business Analysis)                                 |
+| Entorno Laboral          | Corporativo, grandes departamentos de TI, procesos bajo marcos CMMI o SAFe                          |
+| Familiaridad Tecnológica | Alta; manejo de herramientas de modelado y gestión empresarial (Azure DevOps, Enterprise Architect) |
+
 # Capítulo II: Requirements Elicitation & Analysis
 
 ## 2.1. Competidores
