@@ -278,22 +278,22 @@ Utilizamos el framework AARRR (Pirate Metrics) para cuantificar el impacto estra
 **Users (Usuarios)**
 Hemos identificado dos perfiles clave que enfrentan el reto de transformar la voz del cliente en código, adaptados a la realidad de una Startup y una organización corporativa:
 
-| Usuario                           | Perfil                                              | Objetivos                                                                                             | Obstáculos                                                                                              |
-|:----------------------------------|:----------------------------------------------------|:------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|
-| **Alex (Startup Lead)**           | 28 años, Developer Full-stack que hace de Analista. | Mapear el MVP rápidamente, no olvidar *edge cases*, pasar de la reunión al código sin fricción.       | Tiempo limitado, falta de experiencia formal en análisis, cambios constantes de prioridad.              |
-| **Claudia (Analista Enterprise)** | 35 años, Business Analyst en una corporación.       | Estandarizar requisitos en Gherkin, asegurar que nada quede ambiguo, cumplir con normas de seguridad. | Reuniones largas y densas, dificultad para procesar horas de grabación, burocracia en la documentación. |
+| Usuario                           | Perfil                                                      | Objetivos                                                                                                                              | Obstáculos                                                                                              |
+|:----------------------------------|:------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|
+| **Alex (Tech Leader)**            | 32 años, Desarrollador Senior que lidera el equipo técnico. | Traducir visiones de negocio a especificaciones técnicas, evitar deuda técnica por requisitos ambiguos, agilizar el inicio del sprint. | Alta carga de trabajo técnico, dificultad para documentar mientras lidera la discusión técnica.         |
+| **Claudia (Analista Enterprise)** | 35 años, Business Analyst en una corporación.               | Estandarizar requisitos en Gherkin, asegurar que nada quede ambiguo, cumplir con normas de seguridad.                                  | Reuniones largas y densas, dificultad para procesar horas de grabación, burocracia en la documentación. |
 
 **User Outcomes (Resultados de Usuario)**
 Estos son los resultados esperados por nuestros usuarios, divididos según el valor que perciben al usar Reqs-AI:
 
 * Startup Lead:
-Funcional: Obtener historias de usuario listas para el backlog ni bien termina la llamada.
-Emocional: Sentir seguridad de que no "se le pasó nada" técnico durante la conversación.
-Aspiracional: Ser reconocido por su rapidez y capacidad de entrega (delivery) de alta calidad.
+Funcional: Obtener historias de usuario en Gherkin y restricciones técnicas listas para el backlog inmediatamente al finalizar la sesión.
+Emocional: Sentir la seguridad de que la arquitectura y los casos críticos están alineados con la expectativa del cliente antes de escribir una sola línea de código
+Aspiracional: Ser el facilitador de una cultura de ingeniería de alto rendimiento donde la documentación nunca es un cuello de botella para la innovación.
 
 * Analista Enterprise:
 Funcional: Eliminar el trabajo manual de transcribir grabaciones y redactar Gherkin desde cero.
-Emocional: Sentirse empoderada durante la reunión al recibir sugerencias de preguntas que exponen    vacíos de lógica del cliente.
+Emocional: Sentirse empoderada durante la reunión al recibir sugerencias de preguntas que exponen vacíos de lógica del cliente.
 Aspiracional: Posicionarse como una analista estratégica que garantiza la precisión del proyecto, reduciendo el retrabajo del equipo.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
