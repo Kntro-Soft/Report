@@ -394,7 +394,7 @@ Deben asegurar que cada requerimiento del cliente esté perfectamente documentad
     <tr>
       <td><strong>Logo</strong></td>
       <td>
-        <img src="./assets/logos/Logo-Reqs-AI.png" alt="Reqs-AI Logo" width="120">
+        <img src="./assets/logos/Reqs-AI-Logo.png" alt="Reqs-AI Logo" width="120">
       </td>
       <td>
         <img src="./assets/logos/Logo-Jira.png" alt="Jira Logo" width="120">
