@@ -440,6 +440,14 @@ En esta sección se definen los escenarios de atributos de calidad más crítico
 
 ##### 4.1.2.3.	Constraints
 
+Esta sección describe las restricciones innegociables impuestas por el modelo de negocio, las capacidades técnicas del equipo y la viabilidad del proyecto. Las principales restricciones incluyen la dependencia de APIs de LLMs externos y el uso del stack tecnológico (Java/Spring Boot y Angular/Vue.js). A continuación, se detallan como Technical Stories:
+
+| Technical Story ID | Título                               | Descripción                                                                                                                                                            | Criterios de Aceptación                                                                                                                                                                              | Relacionado con (Epic ID) |
+|:-------------------|:-------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|
+| **TS01**           | Stack Tecnológico Backend y Frontend | Como equipo de desarrollo, debemos utilizar Java (Spring Boot) para el backend y Angular o Vue.js para el frontend, debido a la experiencia técnica previa del equipo. | **Given** un nuevo componente a desarrollar<br>**When** el equipo inicie su construcción<br>**Then** el código debe estar escrito en Java 17+ usando Spring Boot o TypeScript usando Angular/Vue.js. | EP01, EP02                |
+| **TS02**           | Uso de APIs de LLM externas          | Como Arquitecto de Software, debo integrar el sistema con APIs de modelos de terceros (ej. OpenAI, Anthropic), ya que no alojaremos modelos propios.                   | **Given** la necesidad de generar Gherkin<br>**When** el sistema realice una inferencia<br>**Then** la petición debe enrutarse hacia la API REST del proveedor seleccionado.                         | EP04                      |
+| **TS03**           | Despliegue en Cloud Pública          | Como responsable de infraestructura, debo asegurar que los componentes sean desplegados en la nube (AWS, Azure o GCP), para evitar costos *on-premise*.                | **Given** la liberación de una nueva versión<br>**When** se ejecute el pipeline de despliegue<br>**Then** los artefactos deben aprovisionarse en la nube pública seleccionada.                       | Todas                     |
+
 ### 4.1.3.	Architectural Drivers Backlog
 
 ### 4.1.4.	Architectural Design Decisions
