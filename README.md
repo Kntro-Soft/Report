@@ -643,6 +643,8 @@ Deben asegurar que cada requerimiento del cliente esté perfectamente documentad
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
+En esta sección se detallan las estrategias y tácticas que Reqs-AI aplicará para establecer una ventaja competitiva frente a herramientas de gestión de proyectos, documentación colaborativa y plataformas con inteligencia artificial aplicadas al trabajo de equipos de software.
+
 ## 2.2. Entrevistas
 
 ### 2.2.1. Diseño de entrevistas
