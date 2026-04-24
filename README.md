@@ -650,6 +650,13 @@ En esta sección se detallan las estrategias y tácticas que Reqs-AI aplicará p
 - Diferenciación por especialización en ingeniería de requisitos:
 Para enfrentar la fortaleza de herramientas como Jira, que cuenta con alta adopción en equipos ágiles y gestión de backlogs, Reqs-AI aplicará la táctica de “levantamiento inteligente de requisitos en tiempo real”. A diferencia de Jira, que se enfoca principalmente en administrar tareas, issues y sprints, Reqs-AI se centrará en la etapa previa: capturar, interpretar y transformar la información de reuniones con clientes en requisitos funcionales, historias de usuario y criterios de aceptación más claros.
 
+#### Estrategia de documentación asistida con contexto del proyecto:
+Frente a plataformas como Notion AI, que destacan por su flexibilidad para redactar y organizar información, Reqs-AI implementará la táctica de “generación contextual basada en RAG”. Esto permitirá que la IA no genere respuestas aisladas, sino que considere información histórica del proyecto, acuerdos anteriores, requisitos existentes y decisiones tomadas previamente, reduciendo duplicidades, contradicciones y vacíos en la documentación.
+
+#### Estrategia de integración con el flujo ágil del equipo:
+Ante competidores consolidados en colaboración visual como Miro AI, Reqs-AI aplicará la táctica de “conversión de ideas en entregables técnicos”. Mientras Miro facilita la ideación y organización visual, Reqs-AI buscará convertir directamente los hallazgos de las reuniones en artefactos accionables para el equipo de desarrollo, como user stories, criterios Gherkin, épicas, funcionalidades priorizadas y preguntas pendientes para el cliente.
+
+
 ## 2.2. Entrevistas
 
 ### 2.2.1. Diseño de entrevistas
