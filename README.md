@@ -430,13 +430,13 @@ A continuación, se detallan las Historias de Usuario primarias que tienen el ma
 
 En esta sección se definen los escenarios de atributos de calidad más críticos que guiarán las decisiones arquitectónicas de Reqs-AI. Se ha priorizado el Rendimiento (necesario para el procesamiento de audio en tiempo real), la Seguridad (aislamiento de datos), la Disponibilidad (para tolerar fallas externas) y la Modificabilidad (cambio de proveedores de IA).
 
-| Atributo                            | Fuente                              | Estímulo                                                                                                | Artefacto                                | Entorno                                           | Respuesta                                                                                                                        | Medida                                                                               |
-|:------------------------------------|:------------------------------------|:--------------------------------------------------------------------------------------------------------|:-----------------------------------------|:--------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|
-| **Performance (Streaming)**         | Líder Técnico / Analista Enterprise | El usuario habla durante la sesión de levantamiento de requerimientos.                                  | Motor de Transcripción (STT)             | Operación normal del sistema.                     | El sistema procesa el flujo de audio continuo y renderiza el texto en la interfaz del cliente.                                   | La transcripción parcial debe aparecer en pantalla en **menos de 2 segundos**.       |
-| **Performance (Consolidación)**     | Líder Técnico / Analista Enterprise | El usuario detiene la grabación de la sesión para generar el Gherkin final.                             | Motor de Procesamiento e Integración LLM | Operación normal del sistema.                     | El sistema procesa la transcripción, consulta al LLM y retorna el documento estructurado.                                        | El documento final se entrega en **menos de 20 segundos** tras finalizar la sesión.  |
-| **Security (Seguridad)**            | Usuario autenticado del Tenant A    | Intenta acceder a través de la API a un ID de proyecto o archivo de audio del Tenant B.                 | API Gateway / Base de Datos              | Operación normal del sistema.                     | El sistema intercepta la petición, verifica el contexto de seguridad (Row Level Security) y deniega el acceso.                   | El acceso se bloquea el **100% de las veces** y se registra el intento en auditoría. |
-| **Availability (Disponibilidad)**   | Proveedor externo de IA (API)       | El servicio del LLM no responde (Timeout) o devuelve un error 500 durante una sesión en vivo.           | Motor de Integración de IA               | Entorno degradado (Falla de dependencia externa). | El sistema encola la transcripción en un Message Broker persistente (ej. RabbitMQ), notifica al usuario y reintenta la conexión. | Se recupera la operación con **0 bytes perdidos**.                                   |
-| **Modifiability (Modificabilidad)** | Arquitecto de Software              | El negocio decide cambiar de proveedor de LLM (ej. de OpenAI a Anthropic) por un incremento de precios. | Módulo de Integración de IA              | Tiempo de diseño/desarrollo.                      | El desarrollador implementa un nuevo adaptador (Adapter) para la nueva API sin alterar la lógica de negocio core.                | El cambio se completa e integra en **menos de 16 horas de desarrollo**.              |
+| Atributo                            | Fuente                              | Estímulo                                                                                                | Artefacto                                | Entorno                                           | Respuesta                                                                                                                       | Medida                                                                               |
+|:------------------------------------|:------------------------------------|:--------------------------------------------------------------------------------------------------------|:-----------------------------------------|:--------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|
+| **Performance (Streaming)**         | Líder Técnico / Analista Enterprise | El usuario habla durante la sesión de levantamiento de requerimientos.                                  | Motor de Transcripción (STT)             | Operación normal del sistema.                     | El sistema procesa el flujo de audio continuo y renderiza el texto en la interfaz del cliente.                                  | La transcripción parcial debe aparecer en pantalla en **menos de 2 segundos**.       |
+| **Performance (Consolidación)**     | Líder Técnico / Analista Enterprise | El usuario detiene la grabación de la sesión para generar el Gherkin final.                             | Motor de Procesamiento e Integración LLM | Operación normal del sistema.                     | El sistema procesa la transcripción, consulta al LLM y retorna el documento estructurado.                                       | El documento final se entrega en **menos de 20 segundos** tras finalizar la sesión.  |
+| **Security (Seguridad)**            | Usuario autenticado del Tenant A    | Intenta acceder a través de la API a un ID de proyecto o archivo de audio del Tenant B.                 | API Gateway / Base de Datos              | Operación normal del sistema.                     | El sistema intercepta la petición, verifica el contexto de seguridad (Row Level Security) y deniega el acceso.                  | El acceso se bloquea el **100% de las veces** y se registra el intento en auditoría. |
+| **Availability (Disponibilidad)**   | Proveedor externo de IA (API)       | El servicio del LLM no responde (Timeout) o devuelve un error 500 durante una sesión en vivo.           | Motor de Integración de IA               | Entorno degradado (Falla de dependencia externa). | El sistema encola la transcripción en un Message Broker persistente, notifica al usuario y reintenta la conexión.               | Se recupera la operación con **0 bytes perdidos**.                                   |
+| **Modifiability (Modificabilidad)** | Arquitecto de Software              | El negocio decide cambiar de proveedor de LLM (ej. de OpenAI a Anthropic) por un incremento de precios. | Módulo de Integración de IA              | Tiempo de diseño/desarrollo.                      | El desarrollador implementa un nuevo adaptador (Adapter) para la nueva API sin alterar la lógica de negocio core.               | El cambio se completa e integra en **menos de 16 horas de desarrollo**.              |
 
 ##### 4.1.2.3.	Constraints
 
@@ -471,7 +471,7 @@ En esta sección se detalla el proceso seguido durante las iteraciones (Stages) 
 En esta primera iteración se evaluó la estructura general del backend y cómo gestionar el aislamiento de datos. Se descartó la arquitectura de Microservicios por su alta complejidad operativa, optando por un **Monolito Modular** en Spring Boot (AD-08). Para resolver la separación de datos entre empresas (AD-02), se debatió entre *Database-per-Tenant* y *Shared-Database*. Se eligió la base de datos compartida aplicando políticas estrictas de **Row Level Security (RLS)** a nivel de base de datos (ej. PostgreSQL), lo que garantiza el aislamiento del 100% de la información mientras se optimizan los costos de despliegue en la nube (AD-07).
 
 **Iteración 2: Ingesta de Audio en Tiempo Real y Tolerancia a Fallos (Drivers: AD-01, AD-03)**
-El reto principal fue cumplir con la latencia <2s para la transcripción en vivo (AD-01). Se evaluó REST Polling, Server-Sent Events (SSE) y WebSockets. Se eligió **WebSockets** por permitir una comunicación bidireccional continua (necesaria para mandar fragmentos de audio al server y recibir texto del STT simultáneamente). Para la tolerancia a fallos ante caídas de las APIs de IA (AD-03), se descartaron colas en memoria volátil y se adoptó el uso de un **Message Broker persistente (ej. RabbitMQ)** para garantizar 0 bytes perdidos en caso de falla externa.
+El reto principal fue cumplir con la latencia <2s para la transcripción en vivo (AD-01). Se evaluó REST Polling, Server-Sent Events (SSE) y WebSockets. Se eligió **WebSockets** por permitir una comunicación bidireccional continua (necesaria para mandar fragmentos de audio al server y recibir texto del STT simultáneamente). Para la tolerancia a fallos ante caídas de las APIs de IA (AD-03), se descartaron colas en memoria volátil y se adoptó el uso de un **Message Broker persistente** para garantizar 0 bytes perdidos en caso de falla externa.
 
 **Iteración 3: Integración RAG y Modificabilidad de IA (Drivers: AD-04, AD-05, AD-06)**
 Finalmente, el equipo abordó cómo evitar el acoplamiento con las APIs de IA de terceros y cómo lograr el RAG rápido (AD-05). Se descartó la Arquitectura en Capas tradicional a favor de una **Arquitectura Hexagonal (Ports and Adapters)**. Esto permite encapsular las reglas de negocio del *Prompt Engineering* en el dominio, dejando a OpenAI o Anthropic como simples "adaptadores", cumpliendo la meta de intercambiabilidad en <16h (AD-06). Para el almacenamiento del contexto del cliente, se eligió una **Base de Datos Vectorial** (ej. pgvector) superando las limitaciones de búsqueda semántica de las BD relacionales tradicionales.
@@ -490,6 +490,174 @@ La siguiente matriz resume la evaluación de los patrones candidatos considerado
 ### 4.1.5.	Quality Attribute Scenario Refinements
 
 
+Tras finalizar las iteraciones del *Quality Attribute Workshop* y definir los patrones arquitectónicos base (WebSockets para el streaming, Shared DB con Row Level Security para el multitenancy, y Message Brokers para la tolerancia a fallos), procedemos a refinar los escenarios de atributos de calidad priorizados. Estos refinamientos incorporan los artefactos tecnológicos que ahora conocemos y mapean directamente los escenarios con los objetivos de negocio (Business Goals) de la plataforma SaaS, identificando además las preguntas abiertas y riesgos remanentes (Issues).
+
+A continuación, se presenta la versión final de los escenarios refinados en orden de prioridad.
+
+<br>
+
+<table border="1" style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <th colspan="2" style="text-align: left; padding: 8px;">Scenario Refinement for Scenario 1</th>
+    <th style="padding: 8px;">Procesamiento de Audio en Tiempo Real (Streaming)</th>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Scenario(s):</strong></td>
+    <td style="padding: 8px;">Procesamiento asíncrono y bidireccional de audio durante la reunión en vivo.</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Business Goals:</strong></td>
+    <td style="padding: 8px;">Garantizar una experiencia de usuario fluida y sin fricciones que posicione a Reqs-AI como una herramienta no intrusiva y veloz, fomentando la adopción temprana por parte de Startups.</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Relevant Quality Attributes:</strong></td>
+    <td style="padding: 8px;">Performance, Usability</td>
+  </tr>
+  <tr>
+    <td style="width: 15%; padding: 8px;"></td>
+    <td style="width: 25%; padding: 8px;"><strong>Stimulus:</strong></td>
+    <td style="padding: 8px;">El usuario habla de forma continua durante la sesión de levantamiento de requerimientos.</td>
+  </tr>
+  <tr>
+    <td rowspan="5" style="vertical-align: top; padding: 8px;"><strong>Scenario<br>Components</strong></td>
+    <td style="padding: 8px;"><strong>Stimulus Source:</strong></td>
+    <td style="padding: 8px;">Líder Técnico / Analista Enterprise.</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px;"><strong>Environment:</strong></td>
+    <td style="padding: 8px;">Operación normal del sistema, con conexión a internet estable.</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px;"><strong>Artifact (if Known):</strong></td>
+    <td style="padding: 8px;">Servidor de WebSockets y Motor STT (Speech-to-Text).</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px;"><strong>Response:</strong></td>
+    <td style="padding: 8px;">El sistema ingesta el flujo de audio a través del canal WebSocket abierto y retorna transcripciones parciales asíncronas al cliente.</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px;"><strong>Response Measure:</strong></td>
+    <td style="padding: 8px;">La transcripción parcial aparece en pantalla en <strong>&lt; 2 segundos</strong>.</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Questions:</strong></td>
+    <td style="padding: 8px;">¿Cuál es el impacto en la memoria RAM del servidor al mantener cientos de conexiones WebSocket concurrentes abiertas durante horas?</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Issues:</strong></td>
+    <td style="padding: 8px;">Posibles desconexiones abruptas de WebSockets en redes corporativas (Enterprise) que utilizan firewalls o proxies estrictos.</td>
+  </tr>
+</table>
+
+<br>
+
+<table border="1" style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <th colspan="2" style="text-align: left; padding: 8px;">Scenario Refinement for Scenario 2</th>
+    <th style="padding: 8px;">Arquitectura Multitenancy y Aislamiento de Datos</th>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Scenario(s):</strong></td>
+    <td style="padding: 8px;">Prevención de acceso no autorizado a datos transaccionales de otra organización.</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Business Goals:</strong></td>
+    <td style="padding: 8px;">Cumplir con estrictas normativas de privacidad corporativa para lograr cerrar contratos B2B de alto valor con clientes del segmento Enterprise.</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Relevant Quality Attributes:</strong></td>
+    <td style="padding: 8px;">Security, Data Privacy</td>
+  </tr>
+  <tr>
+    <td style="width: 15%; padding: 8px;"></td>
+    <td style="width: 25%; padding: 8px;"><strong>Stimulus:</strong></td>
+    <td style="padding: 8px;">Intento de lectura/escritura a través de la API hacia un ID de proyecto o archivo de audio que pertenece a otro inquilino (Tenant).</td>
+  </tr>
+  <tr>
+    <td rowspan="5" style="vertical-align: top; padding: 8px;"><strong>Scenario<br>Components</strong></td>
+    <td style="padding: 8px;"><strong>Stimulus Source:</strong></td>
+    <td style="padding: 8px;">Usuario autenticado malintencionado o error de enrutamiento en el frontend.</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px;"><strong>Environment:</strong></td>
+    <td style="padding: 8px;">Operación normal, sistema bajo ataque o durante auditoría de seguridad.</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px;"><strong>Artifact (if Known):</strong></td>
+    <td style="padding: 8px;">API Gateway, Spring Security y Base de Datos PostgreSQL (Shared DB con RLS).</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px;"><strong>Response:</strong></td>
+    <td style="padding: 8px;">El filtro RLS de la base de datos deniega la lectura, la API retorna un error 403 Forbidden y el evento se guarda en los logs de auditoría.</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px;"><strong>Response Measure:</strong></td>
+    <td style="padding: 8px;">El acceso se bloquea el <strong>100% de las veces</strong> sin fugas de información.</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Questions:</strong></td>
+    <td style="padding: 8px;">¿Cómo afecta la validación de políticas RLS al rendimiento de las consultas complejas (JOINs) cuando la tabla principal supere el millón de registros?</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Issues:</strong></td>
+    <td style="padding: 8px;">Un error humano del DBA al configurar una nueva política RLS podría exponer datos cruzados masivamente si no hay pruebas automatizadas que lo verifiquen.</td>
+  </tr>
+</table>
+
+<br>
+
+<table border="1" style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <th colspan="2" style="text-align: left; padding: 8px;">Scenario Refinement for Scenario 3</th>
+    <th style="padding: 8px;">Tolerancia a Fallos en Servicios de IA</th>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Scenario(s):</strong></td>
+    <td style="padding: 8px;">Caída o timeout del proveedor externo de Inteligencia Artificial (OpenAI / Anthropic).</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Business Goals:</strong></td>
+    <td style="padding: 8px;">Evitar la pérdida irreversible de la información capturada en las reuniones para mantener la confianza absoluta de los clientes y minimizar la tasa de abandono (churn rate).</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Relevant Quality Attributes:</strong></td>
+    <td style="padding: 8px;">Availability, Reliability</td>
+  </tr>
+  <tr>
+    <td style="width: 15%; padding: 8px;"></td>
+    <td style="width: 25%; padding: 8px;"><strong>Stimulus:</strong></td>
+    <td style="padding: 8px;">El servicio del LLM no responde (Timeout) o devuelve un error 5xx durante la fase crítica de consolidación de historias.</td>
+  </tr>
+  <tr>
+    <td rowspan="5" style="vertical-align: top; padding: 8px;"><strong>Scenario<br>Components</strong></td>
+    <td style="padding: 8px;"><strong>Stimulus Source:</strong></td>
+    <td style="padding: 8px;">Proveedor externo de API de Inteligencia Artificial.</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px;"><strong>Environment:</strong></td>
+    <td style="padding: 8px;">Entorno degradado (Falla crítica de dependencia externa).</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px;"><strong>Artifact (if Known):</strong></td>
+    <td style="padding: 8px;">Módulo de Integración de IA (Adapter Hexagonal) y Message Broker (ej. Kafka).</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px;"><strong>Response:</strong></td>
+    <td style="padding: 8px;">El sistema encola la solicitud de inferencia en un broker, notifica al usuario en la UI ("En proceso diferido"), y aplica una política de reintentos (Exponential Backoff).</td>
+  </tr>
+  <tr>
+    <td style="padding: 8px;"><strong>Response Measure:</strong></td>
+    <td style="padding: 8px;">Se recupera la operación y persiste el texto con <strong>0 bytes perdidos</strong>.</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Questions:</strong></td>
+    <td style="padding: 8px;">¿Cuánto tiempo debemos retener los mensajes en la cola del broker antes de enviarlos a una Dead Letter Queue (DLQ) por falla permanente?</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 8px;"><strong>Issues:</strong></td>
+    <td style="padding: 8px;">Si la caída global del proveedor de IA dura varias horas, la cola del broker podría llenarse hasta saturar el almacenamiento local del clúster.</td>
+  </tr>
+</table>
 
 ## 4.2.	Strategic-Level Domain-Driven Design
 
