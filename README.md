@@ -680,6 +680,16 @@ El diseño de entrevistas se orienta a comprender en profundidad el trabajo real
 
 ### 2.3.1. User personas
 
+Esta sección presenta los arquetipos de usuario de Reqs-AI, construidos a partir del análisis de entrevistas realizadas a profesionales del levantamiento de requisitos y del estudio del contexto operativo en startups y entornos enterprise.
+Los user personas sintetizan patrones de comportamiento, objetivos, frustraciones y necesidades clave que luego se conectan con los demás artefactos de needfinding (User Task Matrix, Journey Map, Empathy Map y As-Is Scenario Mapping).
+
+**User persona del segmento de Líder Técnico de Startup**
+
+<img src="assets/requirements/personas/tech-lead.png" alt="User Persona Líder Técnico de Startup" width="800">
+
+**User persona del segmento de Analista de Sistemas Enterprise**
+
+<img src="assets/requirements/personas/analista.png" alt="User Persona Analista de Sistemas Enterprise" width="800">
 
 
 ### 2.3.2. User Task Matrix
