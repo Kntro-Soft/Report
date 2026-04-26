@@ -364,11 +364,313 @@ Deben asegurar que cada requerimiento del cliente esté perfectamente documentad
 
 ### 2.1.1. Análisis competitivo
 
+<table border="1" cellspacing="0" cellpadding="10" style="border-collapse: collapse; width: 100%; text-align: left;">
+  <thead>
+    <tr>
+      <th>Aspecto</th>
+      <th>KinestEduAI (Propuesta)</th>
+      <th>EndeavorRx</th>
+      <th>Atenxia</th>
+      <th>Joon</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>¿Por qué llevar a cabo este análisis?</strong></td>
+      <td colspan="4">
+        Identificar cómo la propuesta puede diferenciarse de las soluciones actuales para niños con TDAH,
+        especialmente al integrar ejercicios de concentración, habilidades psicomotrices e inteligencia artificial
+        dentro de una plataforma web accesible y orientada al contexto educativo y terapéutico.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Nombre</strong></td>
+      <td>KinestEduAI</td>
+      <td>EndeavorRx</td>
+      <td>Atenxia</td>
+      <td>Joon</td>
+    </tr>
+    <tr>
+      <td><strong>Logo</strong></td>
+      <td>[Logo propio]</td>
+      <td>[Logo EndeavorRx]</td>
+      <td>[Logo Atenxia]</td>
+      <td>[Logo Joon]</td>
+    </tr>
+    <tr>
+      <td><strong>Overview</strong></td>
+      <td>
+        Sistema web interactivo orientado a niños de 6 a 8 años con TDAH, enfocado en fortalecer
+        la concentración y las habilidades psicomotrices mediante actividades gamificadas y apoyo de IA.
+      </td>
+      <td>
+        Terapia digital en formato de videojuego para mejorar la función de atención en niños con TDAH;
+        está orientada a pacientes pediátricos y se usa bajo prescripción profesional.
+      </td>
+      <td>
+        Plataforma basada en inteligencia artificial orientada a la mejora de habilidades atencionales
+        en niños en edad escolar, incluyendo casos relacionados con TDAH y dislexia.
+      </td>
+      <td>
+        Aplicación gamificada que ayuda a niños a cumplir rutinas y tareas diarias, reforzando hábitos,
+        organización y seguimiento conductual con apoyo familiar.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Ventaja competitiva</strong></td>
+      <td>
+        Integra en una sola solución: concentración, psicomotricidad, gamificación e IA,
+        con una propuesta web más accesible para instituciones educativas, familias y especialistas.
+      </td>
+      <td>
+        Respaldo clínico y posicionamiento como terapia digital especializada para TDAH,
+        con enfoque claro en atención sostenida.
+      </td>
+      <td>
+        Uso de IA aplicado a dificultades atencionales y de aprendizaje en población infantil escolar.
+      </td>
+      <td>
+        Fuerte enfoque en motivación infantil y cumplimiento de rutinas mediante mecánicas de juego.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>¿Qué valor ofrece a los clientes?</strong></td>
+      <td>
+        Permite trabajar de manera integral la atención y la coordinación motriz en niños,
+        ofreciendo seguimiento de desempeño, personalización y apoyo digital para docentes, padres o terapeutas.
+      </td>
+      <td>
+        Ofrece una intervención digital específica para mejorar atención en niños con TDAH,
+        con respaldo profesional y uso en el hogar.
+      </td>
+      <td>
+        Brinda una solución tecnológica para reforzar habilidades atencionales en entornos educativos y terapéuticos.
+      </td>
+      <td>
+        Ayuda a padres a motivar a sus hijos en tareas diarias y mejorar adherencia a rutinas.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Mercado objetivo</strong></td>
+      <td>
+        Niños de 6 a 8 años con TDAH, padres de familia, docentes, psicólogos y centros educativos o terapéuticos.
+      </td>
+      <td>
+        Niños con TDAH dentro del rango pediátrico indicado y profesionales de salud que prescriben tratamiento.
+      </td>
+      <td>
+        Profesionales, docentes e instituciones interesadas en mejorar habilidades atencionales en niños.
+      </td>
+      <td>
+        Familias con niños de 6 a 12 años que necesitan apoyo conductual y motivación para rutinas.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Estrategias de marketing</strong></td>
+      <td>
+        Enfoque B2B2C: colegios, especialistas y familias; posicionamiento por impacto educativo,
+        accesibilidad y personalización mediante IA.
+      </td>
+      <td>
+        Posicionamiento clínico y validación terapéutica dirigida a profesionales y familias.
+      </td>
+      <td>
+        Comunicación orientada a instituciones educativas y profesionales que buscan apoyo con IA.
+      </td>
+      <td>
+        Marketing dirigido a padres de familia mediante beneficios prácticos en hábitos y comportamiento.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Productos y servicios</strong></td>
+      <td>
+        Plataforma web con minijuegos de atención y motricidad, panel de seguimiento, analítica de progreso
+        y módulos de personalización mediante inteligencia artificial.
+      </td>
+      <td>
+        Videojuego terapéutico digital para atención en niños con TDAH.
+      </td>
+      <td>
+        Plataforma de apoyo basada en IA para habilidades atencionales y aprendizaje.
+      </td>
+      <td>
+        App gamificada para rutinas, tareas y refuerzo conductual.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Precios y costos</strong></td>
+      <td>
+        Modelo potencial de suscripción accesible para familias o licenciamiento para instituciones educativas
+        y centros terapéuticos.
+      </td>
+      <td>
+        Modelo especializado asociado al entorno clínico y tratamiento digital prescrito.
+      </td>
+      <td>
+        Acceso tipo plataforma digital para usuarios profesionales o institucionales.
+      </td>
+      <td>
+        Modelo de aplicación por suscripción/familia enfocado en uso doméstico.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Canales de distribución</strong></td>
+      <td>
+        Plataforma web responsiva, acceso desde navegador, posible uso en colegios, hogares y centros de apoyo.
+      </td>
+      <td>
+        Aplicación digital en dispositivos móviles, dentro de un contexto terapéutico.
+      </td>
+      <td>
+        Plataforma en línea para profesionales, docentes o instituciones.
+      </td>
+      <td>
+        Aplicación móvil orientada a padres e hijos.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Fortalezas</strong></td>
+      <td>
+        Enfoque integral en atención y psicomotricidad; personalización con IA; orientación a edad temprana;
+        posibilidad de adaptación al contexto peruano y educativo.
+      </td>
+      <td>
+        Alta especialización, reconocimiento clínico y foco claro en mejora de atención.
+      </td>
+      <td>
+        Uso de IA en población infantil escolar y orientación a habilidades atencionales.
+      </td>
+      <td>
+        Experiencia atractiva para niños y buena propuesta para adherencia a rutinas.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Oportunidades</strong></td>
+      <td>
+        Crecimiento de soluciones edtech y healthtech, mayor interés por atención temprana,
+        necesidad de herramientas accesibles para TDAH en contextos escolares latinoamericanos.
+      </td>
+      <td>
+        Expansión internacional de terapias digitales y mayor aceptación de salud digital.
+      </td>
+      <td>
+        Mayor demanda de plataformas con IA para apoyo educativo y neurodesarrollo.
+      </td>
+      <td>
+        Crecimiento del mercado de apps familiares y herramientas de apoyo conductual.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Debilidades</strong></td>
+      <td>
+        Requiere validación con usuarios reales, evidencia de impacto y posicionamiento frente a marcas ya conocidas.
+      </td>
+      <td>
+        Su foco principal está en atención; no prioriza directamente habilidades psicomotrices.
+      </td>
+      <td>
+        Su propuesta no se centra exclusivamente en psicomotricidad ni necesariamente en el rango específico de 6 a 8 años.
+      </td>
+      <td>
+        Se orienta más a hábitos y conducta que a entrenamiento cognitivo o psicomotor especializado.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Amenazas</strong></td>
+      <td>
+        Competencia de apps ya posicionadas, resistencia institucional a nuevas tecnologías,
+        necesidad de confianza académica o terapéutica para adopción formal.
+      </td>
+      <td>
+        Aparición de soluciones más accesibles o integrales en mercados emergentes.
+      </td>
+      <td>
+        Competidores con mayor validación clínica o mayor especialización en TDAH.
+      </td>
+      <td>
+        Saturación del mercado de apps infantiles y baja diferenciación en herramientas de conducta.
+      </td>
+    </tr>
+</tbody>
+</table>
+
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
 ## 2.2. Entrevistas
 
 ### 2.2.1. Diseño de entrevistas
+
+El diseño de entrevistas se orienta a comprender en profundidad el trabajo real de cada segmento: su contexto, decisiones, tareas, emociones y restricciones operativas. El guion se organiza de forma progresiva para conocer cómo viven hoy el proceso, qué valoran y dónde encuentran más dificultades.
+
+**Segmento 1: Líder Técnico de Startup**
+
+**Inicio y contexto profesional**
+1. ¿Cuál es tu rol actual dentro del equipo y qué nivel de participación tienes en reuniones de discovery con clientes?
+2. ¿Cómo está conformado tu equipo (roles, seniority y metodología) y cómo se reparte la responsabilidad del levantamiento de requisitos?
+3. ¿Qué tipo de proyectos desarrollan y qué restricciones de tiempo o presupuesto suelen condicionar sus decisiones?
+
+**Herramientas, ecosistema e influencias**
+4. ¿Qué stack tecnológico y equipos tecnológicos usan para coordinar reuniones, documentar decisiones y gestionar backlog?
+5. ¿Qué herramientas o marcas influyen más en tu forma de trabajar (por ejemplo Atlassian, Microsoft, AWS, GitHub, Notion) y por qué?
+6. ¿Qué referentes, comunidades, canales o personas influyen en tus decisiones sobre prácticas de análisis de requisitos?
+
+**Flujo actual de trabajo**
+7. Cuéntame paso a paso qué haces desde que se agenda una reunión con cliente hasta que una historia de usuario entra al sprint.
+8. ¿Qué tareas realizas tú, cuáles delegas y cuáles dependen de otros roles para cerrar un requerimiento?
+9. ¿Qué entradas usas en cada etapa (audio, notas, tickets, acuerdos) y qué entregables concretos produces al final?
+
+**Puntos de dolor y fricciones del proceso**
+10. ¿En qué momento del flujo se pierden más detalles críticos o aparecen ambiguedades?
+11. ¿Qué tipo de retrabajo se genera cuando una historia queda incompleta o mal definida?
+12. ¿Qué casos de borde o restricciones técnicas suelen omitirse en la primera conversación y por qué?
+13. ¿Cómo impactan esos errores en tiempo de sprint, esfuerzo del equipo y calidad del resultado?
+
+**Experiencia, motivaciones y expectativas**
+14. ¿Qué te motiva más de liderar esta etapa y qué resultado ideal te gustaría garantizar en cada sesión?
+15. ¿Qué situaciones te generan más frustración durante o después de las reuniones de levantamiento?
+16. Cuando el proceso sale bien, ¿qué te hace pensar "esta reunión sí fue productiva"?
+
+**Recorrido completo y validación de propuesta**
+17. Si describieras tu experiencia de principio a fin, ¿cuáles son tus "momentos críticos" (inicio, caos, decisión, cierre)?
+18. ¿En qué parte del recorrido actual sientes mayor carga mental o riesgo de cometer errores?
+19. Si durante la reunión recibieras sugerencias de preguntas en tiempo real, ¿en qué momento exacto del proceso te ayudaría más?
+20. Si al finalizar obtuvieras historias en Gherkin listas para backlog, ¿qué nivel de precisión y edición manual aceptarías?
+21. Si tuvieras que resumir tu experiencia actual en una frase textual, ¿qué dirías?
+
+**Segmento 2: Analista de Sistemas Enterprise**
+
+**Inicio y contexto profesional**
+1. ¿Cuál es tu responsabilidad principal en el ciclo de requisitos y con qué áreas debes coordinar (negocio, desarrollo, QA, seguridad)?
+2. ¿Qué estándares, políticas o marcos de cumplimiento condicionan la documentación que produces?
+3. ¿Qué tipo de proyectos y stakeholders manejas con mayor frecuencia y qué nivel de complejidad tienen sus sesiones?
+
+**Herramientas, ecosistema e influencias**
+4. ¿Qué plataformas, equipos tecnológicos e integraciones usas para registrar, validar y trazar requisitos?
+5. ¿Qué marcas o proveedores pesan más en la selección de herramientas dentro de tu organización?
+6. ¿Qué referentes internos o externos (comités, líderes, buenas prácticas) influyen en tus decisiones metodológicas?
+
+**Flujo actual de trabajo**
+7. Describe paso a paso tu proceso desde la convocatoria de una reunión hasta la aprobación final del requerimiento.
+8. ¿Qué tareas ejecutas tú directamente y cuáles requieren validación de terceros antes de cerrar un requisito?
+9. ¿Qué evidencias o artefactos debes generar en cada etapa para cumplir trazabilidad y auditoría?
+
+**Puntos de dolor y fricciones del proceso**
+10. ¿Dónde aparecen más errores o retrasos: captura inicial, redacción, validación, transferencia a desarrollo/QA o seguimiento?
+11. ¿Qué consecuencias operativas y de riesgo aparecen cuando hay ambiguedades en los requisitos?
+12. ¿Qué situaciones te obligan a convocar reuniones adicionales y cómo impactan en tus plazos?
+13. ¿Qué parte del proceso te demanda más esfuerzo manual y por qué?
+
+**Experiencia, motivaciones y expectativas**
+14. ¿Qué te motiva profesionalmente cuando logras una especificación clara, trazable y útil para todo el equipo?
+15. ¿Qué te frustra más del proceso actual, incluso cuando se cumplen los procedimientos formales?
+16. ¿Qué señales te indican que una entrevista con stakeholders realmente fue efectiva?
+
+**Recorrido completo y validación de propuesta**
+17. Si dibujaras tu recorrido completo de trabajo, ¿en qué momentos sientes más presión o incertidumbre?
+18. ¿Qué piensa, siente y teme tu área cuando se propone usar IA para asistir la documentación de requisitos?
+19. ¿Qué condiciones de seguridad, privacidad, control y auditoría serían indispensables para evaluar una solución como Reqs-AI?
+20. Si la herramienta sugiriera preguntas en vivo y redactara borradores en tiempo real, ¿qué criterios usarías para aprobar su adopción?
+21. Si tuvieras que dejar una frase textual que resuma tu experiencia actual en este proceso, ¿cuál sería?
 
 ### 2.2.2. Registro de entrevistas
 
@@ -377,6 +679,18 @@ Deben asegurar que cada requerimiento del cliente esté perfectamente documentad
 ## 2.3. Need finding
 
 ### 2.3.1. User personas
+
+Esta sección presenta los arquetipos de usuario de Reqs-AI, construidos a partir del análisis de entrevistas realizadas a profesionales del levantamiento de requisitos y del estudio del contexto operativo en startups y entornos enterprise.
+Los user personas sintetizan patrones de comportamiento, objetivos, frustraciones y necesidades clave que luego se conectan con los demás artefactos de needfinding (User Task Matrix, Journey Map, Empathy Map y As-Is Scenario Mapping).
+
+**User persona del segmento de Líder Técnico de Startup**
+
+<img src="assets/requirements/personas/tech-lead.png" alt="User Persona Líder Técnico de Startup" width="800">
+
+**User persona del segmento de Analista de Sistemas Enterprise**
+
+<img src="assets/requirements/personas/analista.png" alt="User Persona Analista de Sistemas Enterprise" width="800">
+
 
 ### 2.3.2. User Task Matrix
 
