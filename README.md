@@ -458,6 +458,41 @@ Esta sección describe las restricciones innegociables impuestas por el modelo d
 
 ### 4.2.1.	EventStorming
 
+Para establecer una base sólida en el diseño guiado por el dominio (DDD) y facilitar el descubrimiento de nuestros Bounded Contexts, el equipo de Kntro-Soft llevó a cabo una sesión de **Design-Level Event Storming** utilizando la herramienta colaborativa Miro. La sesión tuvo una duración aproximada de 2 horas. El objetivo principal fue transicionar del espacio del problema (entendido en los capítulos anteriores) al espacio de la solución, mapeando la línea de tiempo completa del negocio de Reqs-AI. Al utilizar un enfoque de nivel de diseño, pudimos no solo explorar los eventos que ocurren en el sistema (como la captura de audio o la generación de Gherkin), sino también agrupar lógicamente las reglas de negocio para descubrir los Agregados (Aggregates) estructurales del código antes de definir las fronteras de los subdominios.
+
+La sesión se estructuró siguiendo una agenda iterativa para construir el modelo de forma progresiva:
+
+1. **Domain Events (Eventos de Dominio):** Iniciamos la sesión identificando y ordenando cronológicamente en post-its naranjas los hechos relevantes que ya han ocurrido en el sistema (verbos en participio pasado). La línea de tiempo abarcó desde Organización Registrada y Suscripción Pagada, pasando por el núcleo operativo, hasta eventos de cierre como Historias Exportadas a Jira.
+
+![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Domain-Events.jpg)
+
+2. **Commands (Comandos):** A la izquierda de cada evento naranja, colocamos post-its azules que representan la acción o intención que provocó dicho evento. Por ejemplo, el comando Procesar Audio precede al evento Audio Transcrito, y el comando Generar Historia de usuario precede a Historia de Usuario Generada.
+
+![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Commands.jpg)
+
+5. **Actors and Policies (Actores y Políticas):** Identificamos qué o quién ejecuta los comandos. Utilizamos post-its amarillos pequeños para los actores humanos, destacando a nuestros roles principales: Líder Técnico, Analista Enterprise. Para las acciones automatizadas de nuestro SaaS, usamos post-its lilas (Políticas), redactadas como reacciones.
+
+![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Actors-and-Policies.jpg)
+
+5. **Blank stickies for Read models and UX mockups:** Para garantizar que el diseño de software contemple la experiencia del usuario, insertamos post-its verdes y blancos vacíos justo antes de las decisiones (comandos) de los actores, marcando los lugares donde el usuario necesita información antes de actuar.
+
+![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Blank-stickies.jpg)
+
+6. **Read models and UX Mockups:** Llenamos los post-its vacíos detallando la información necesaria (post-its verdes), como Estado de Transcripción en Vivo o Dashboard de Consumo de Tokens, y agregamos bocetos rápidos (wireframes en post-its blancos) para visualizar la interfaz de la consola de captura de Reqs-AI.
+
+![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/RM-and-UX.jpg)
+
+7. **External systems (Sistemas Externos):** Mapeamos las dependencias críticas de Reqs-AI utilizando post-its rosados. Los colocamos entre los comandos y los eventos cuando la acción delegaba responsabilidad a un tercero. Fue fundamental para diagramar llamadas a la API de IA (generación de historias), a la pasarela de pago (facturación) y a la API de Jira (exportación).
+
+![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/External-services.jpg)
+
+8. **Aggregates and Business Rules (Agregados y Reglas de Negocio):** Esta fue la etapa más crítica del diseño. Añadimos post-its amarillos rectangulares entre los comandos y los eventos para documentar las Reglas de Negocio (Business Rules) requeridas, definiendo precondiciones, postcondiciones e invariantes
+
+![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Aggregates.jpg)
+
+El resultado de la sesión de Design-Level Event Storming fue un mapa exhaustivo y altamente estructurado del dominio de Reqs-AI. Pasamos de una simple línea de tiempo a un conjunto de Agregados claramente definidos, destacando Aggregates críticos como Organization (para el multitenancy), Subscription, Session y UserStory. 
+
+
 ### 4.2.2.	Candidate Context Discovery
 
 ### 4.2.3.	Domain Message Flows Modeling
