@@ -727,6 +727,16 @@ A continuación, se presentan los User Journey Maps As-Is de cada User Persona. 
 
 ### 2.3.4. Empathy Mapping
 
+Se elaboraron los Empathy Maps para los dos User Personas priorizados: el Líder Técnico de Startup y el Analista de Sistemas Enterprise. Este proceso permitió profundizar en lo que cada segmento dice, piensa, hace, observa y escucha durante el levantamiento de requisitos, identificando sus principales pains y gains para orientar el diseño de una solución realmente alineada con su contexto operativo.
+
+#### Líder Técnico de Startup
+
+![Empathy Mapping - Tech Lead](assets/requirements/maps/empathy-maps/tech-lead.png)
+
+#### Analista de Sistemas Enterprise
+
+![Empathy Mapping - Analyst](assets/requirements/maps/empathy-maps/analyst.png)
+
 ### 2.3.5. As-is Scenario Mapping
 
 ## 2.4. Ubiquitous Language
