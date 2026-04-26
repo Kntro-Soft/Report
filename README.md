@@ -759,11 +759,62 @@ El diseño de entrevistas se orienta a comprender en profundidad el trabajo real
 
 ### 2.3.1. User personas
 
+Esta sección presenta los arquetipos de usuario de Reqs-AI, construidos a partir del análisis de entrevistas realizadas a profesionales del levantamiento de requisitos y del estudio del contexto operativo en startups y entornos enterprise.
+Los user personas sintetizan patrones de comportamiento, objetivos, frustraciones y necesidades clave que luego se conectan con los demás artefactos de needfinding (User Task Matrix, Journey Map, Empathy Map y As-Is Scenario Mapping).
+
+**User persona del segmento de Líder Técnico de Startup**
+
+<img src="assets/requirements/personas/tech-lead.png" alt="User Persona Líder Técnico de Startup" width="800">
+
+**User persona del segmento de Analista de Sistemas Enterprise**
+
+<img src="assets/requirements/personas/analista.png" alt="User Persona Analista de Sistemas Enterprise" width="800">
+
+
 ### 2.3.2. User Task Matrix
+
+En este User Task Matrix se detallan las tareas que realizan los dos segmentos objetivo considerados en Reqs-AI: el Líder Técnico de Startup y el Analista de Sistemas Enterprise. Las tareas descritas corresponden al trabajo real de levantamiento, validación y transferencia de requisitos, y se ejecutan independientemente de la existencia de una herramienta de software.
+
+| **TAREA** | **Diego Alvarado (Líder Técnico de Startup) - Frecuencia** | **Diego Alvarado (Líder Técnico de Startup) - Importancia** | **Analista Enterprise Genérico (Analista de Sistemas Enterprise) - Frecuencia** | **Analista Enterprise Genérico (Analista de Sistemas Enterprise) - Importancia** |
+|---|:---:|:---:|:---:|:---:|
+| Agendar y preparar reuniones de levantamiento de requisitos con stakeholders | always | high | always | high |
+| Escuchar, sintetizar y registrar necesidades funcionales y reglas de negocio durante la reunión | always | high | always | high |
+| Identificar supuestos, restricciones, dependencias y casos de borde | always | high | always | high |
+| Formular preguntas de aclaración para reducir ambiguedad en tiempo real | always | high | always | high |
+| Transformar notas y acuerdos en historias de usuario y criterios de aceptación | always | high | always | high |
+| Estandarizar la redacción de criterios en formato estructurado (por ejemplo, Gherkin) | sometimes | high | always | high |
+| Validar entendimiento con desarrollo y QA antes de comprometer el sprint | always | high | always | high |
+| Gestionar cambios de alcance y negociar prioridades con negocio cuando aparecen nuevas condiciones | sometimes | high | always | high |
+| Mantener trazabilidad de acuerdos, versiones y decisiones para auditoría y control | sometimes | medium | always | high |
+| Revisar grabaciones/minutas y depurar documentación para cerrar vacíos de información | sometimes | medium | always | high |
+| Coordinar reuniones de seguimiento por dudas o contradicciones detectadas después del levantamiento | sometimes | medium | sometimes | high |
+
+
+La principal diferencia está en el enfoque operativo: el Líder Técnico de Startup prioriza velocidad de ejecución y alineación práctica para codificar cuanto antes, mientras que el Analista de Sistemas Enterprise prioriza estandarización, trazabilidad y control de riesgo. Por ello, en el segmento enterprise aumentan la frecuencia e importancia de actividades formales como redacción estructurada, revisión exhaustiva de evidencias y gestión de cambios bajo criterios de gobernanza.
 
 ### 2.3.3. User Journey Mapping
 
+A continuación, se presentan los User Journey Maps As-Is de cada User Persona. Estos mapas permiten visualizar el recorrido end-to-end de ambos segmentos durante el levantamiento y documentación de requisitos en su situación actual (sin la solución), identificando fricciones, puntos de dolor y oportunidades de mejora en cada etapa del proceso.
+
+* User Journey Map de Diego Alvarado (Líder Técnico de Startup):
+
+  ![User Journey Map del User Persona Diego Alvarado](assets/requirements/maps/journey-maps/tech-lead.png)
+
+* User Journey Map de Analista Enterprise Genérico (Analista de Sistemas Enterprise):
+
+  ![User Journey Map del User Persona Analista Enterprise Genérico](assets/requirements/maps/journey-maps/analyst.png)
+
 ### 2.3.4. Empathy Mapping
+
+Se elaboraron los Empathy Maps para los dos User Personas priorizados: el Líder Técnico de Startup y el Analista de Sistemas Enterprise. Este proceso permitió profundizar en lo que cada segmento dice, piensa, hace, observa y escucha durante el levantamiento de requisitos, identificando sus principales pains y gains para orientar el diseño de una solución realmente alineada con su contexto operativo.
+
+#### Líder Técnico de Startup
+
+![Empathy Mapping - Tech Lead](assets/requirements/maps/empathy-maps/tech-lead.png)
+
+#### Analista de Sistemas Enterprise
+
+![Empathy Mapping - Analyst](assets/requirements/maps/empathy-maps/analyst.png)
 
 ### 2.3.5. As-is Scenario Mapping
 
