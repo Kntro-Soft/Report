@@ -615,6 +615,51 @@ Este contexto actúa como capa anticorrupción para exportar las historias de us
 
 ### 4.2.5.	Context Mapping
 
+En esta sección evidenciamos el proceso de elaboración de nuestro Context Map. Para llegar al diseño estructural definitivo de nuestros Bounded Contexts, el equipo evaluó el modelo sometiéndolo a un análisis crítico, respondiendo a las preguntas estratégicas de diseño sugeridas. Además, aplicamos rigurosamente los patrones de integración definidos por el repositorio oficial de Context Mapping de DDD Crew.
+
+**Evaluación de Alternativas y Diseños Candidatos**
+
+*   **¿Qué pasaría si aislamos los core capabilities y movemos los otros a un context aparte?**
+    Inicialmente consideramos que la generación de la historia de usuario y su posterior exportación a Jira ocurrieran en el mismo módulo. Sin embargo, al aplicar esta pregunta, nos dimos cuenta de que exportar tickets es una capacidad de soporte. Aislamos el core de IA en **Requirement Generation** y movimos la integración externa al **Integration Gateway** para evitar que cambios en APIs de terceros contaminen nuestro motor de inferencia.
+*   **¿Qué pasaría si duplicamos una funcionalidad para romper la dependencia?**
+    Evaluamos la validación de cuotas. Si **Requirement Generation** tuviera que preguntar sincrónicamente a **Billing & Subscription** si un usuario tiene saldo de IA antes de cada inferencia, el sistema sería lento y frágil. Decidimos romper esta dependencia directa. **Billing & Subscription** emite eventos asíncronos cuando una cuota se acaba, y **Requirement Generation** duplica y almacena localmente un indicador de bloqueo, permitiendo inferencias rápidas sin consultas de red.
+*   **¿Qué pasaría si tomamos un capability de estos contexts y lo usamos para formar un nuevo context?**
+    Al analizar la autenticación de usuarios y la gestión de empresas, notamos que estaban fuertemente acopladas. Tomamos la capacidad de registro y login y formamos el contexto **IAM**, separándolo de **Workspace**. Esto nos permite evolucionar la seguridad genérica independientemente de la compleja lógica de roles corporativos multitenant.
+
+**Patrones de Relación DDD Establecidos**
+
+Tras este debate, definimos formalmente los patrones de integración estratégicos entre nuestros módulos y los sistemas de terceros. Las relaciones indican quién es el proveedor Upstream U y quién es el consumidor Downstream D.
+
+1.  **Integration Gateway D hacia External PM Service (Jira) U**
+    *   **Patrón:** Anti-Corruption Layer ACL
+    *   **Justificación:** El Integration Gateway actúa como una barrera traductora. Consume nuestros eventos internos y los transforma a los complejos modelos de datos de Atlassian. Nuestro Core jamás se entera de los esquemas propietarios de Jira.
+2.  **Requirement Generation D hacia External LLM Service U**
+    *   **Patrón:** Anti-Corruption Layer ACL
+    *   **Justificación:** Para evitar el vendor lock-in con OpenAI o Anthropic. Traducimos nuestros Prompts genéricos al esquema JSON específico de la API del proveedor, protegiendo nuestro modelo de dominio de cambios en la IA externa.
+3.  **Meeting Capture D hacia External STT Service U**
+    *   **Patrón:** Anti-Corruption Layer ACL
+    *   **Justificación:** Al igual que con el LLM, el servicio de Speech-to-Text externo dicta un formato de streaming propio. El ACL aísla a Meeting Capture de la tecnología de transcripción subyacente.
+4.  **Requirement Generation D hacia Project Configuration U**
+    *   **Patrón:** Customer / Supplier
+    *   **Justificación:** Requirement Generation Customer exige que el glosario se le entregue en un formato limpio de texto para el RAG. Project Configuration Supplier adapta su entrega de documentos PDFs para satisfacer esta necesidad.
+5.  **Workspace D hacia IAM U y Workspace D hacia Billing & Subscription U**
+    *   **Patrón:** Conformist CF
+    *   **Justificación:** Workspace conforma ciegamente a los modelos de Identidad de IAM y a los eventos de Cuotas de Billing, sin exigirles cambios a esos dominios genéricos.
+6.  **Workspace U hacia Requirement Generation D y Project Configuration D**
+    *   **Patrones:** Open Host Service OHS y Published Language PL
+    *   **Justificación:** Workspace emite eventos de dominio indicando si una organización tiene permisos o cuotas válidas. Contextos como Requirement Generation y Project Configuration consumen estos eventos estandarizados PL para saber si deben procesar o rechazar las peticiones de IA o creación de proyectos.
+7.  **Comunicación Core Interna Event-Driven**
+    *   **Patrones:** Open Host Service OHS y Published Language PL
+    *   **Justificación:** Las conexiones asíncronas entre los contextos **Meeting Capture U -> Requirement Generation D** y **Requirement Generation U -> Integration Gateway D** se realizan publicando eventos en un broker, funcionando como un OHS.
+
+**Diagrama de Context Map Final**
+
+A continuación presentamos la visualización de las relaciones estructurales consolidadas tras aplicar los patrones descritos. Las líneas conectan los Bounded Contexts indicando los roles U y D y los patrones aplicados sobre ellas.
+
+![Context Map](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.5.Context-Mapping/ContextMapping.png)
+
+
+
 ## 4.3.	Software Architecture
 
 ### 4.3.1.	Software Architecture System Landscape Diagram
