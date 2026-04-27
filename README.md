@@ -116,9 +116,9 @@ En esta sección se documenta la colaboración del equipo en la elaboración del
     * [4.2.5.	Context Mapping](#425-context-mapping)
   * [4.3.	Software Architecture](#43-software-architecture)
     * [4.3.1.	Software Architecture System Landscape Diagram](#431-software-architecture-system-landscape-diagram)
-    * [4.3.1.	Software Architecture Context Level Diagrams](#431-software-architecture-context-level-diagrams)
-    * [4.3.2.	Software Architecture Container Level Diagrams](#432-software-architecture-container-level-diagrams)
-    * [4.3.3.	Software Architecture Deployment Diagrams](#433-software-architecture-deployment-diagrams)
+    * [4.3.2.	Software Architecture Context Level Diagrams](#432-software-architecture-context-level-diagrams)
+    * [4.3.3.	Software Architecture Container Level Diagrams](#433-software-architecture-container-level-diagrams)
+    * [4.3.4.	Software Architecture Deployment Diagrams](#434-software-architecture-deployment-diagrams)
 * [Capítulo V: Tactical-Level Software Design](#capítulo-v-tactical-level-software-design)
   * [5.X.	Bounded Context: <Bounded Context Name>](#5x-bounded-context-bounded-context-name)
     * [5.X.1.	Domain Layer](#5x1-domain-layer)
@@ -904,13 +904,32 @@ Las historias de usuario, junto con sus estimaciones en Story Points, Criterios 
 
 ## 4.3.	Software Architecture
 
+En este capítulo, el equipo detalla la arquitectura de software de Reqs-AI aplicando el modelo C4. Este modelo jerárquico permite documentar el sistema desde su ecosistema más amplio hasta sus componentes desplegables y su entorno de infraestructura final. Todas las decisiones reflejadas en estos diagramas están alineadas con los Atributos de Calidad y Restricciones analizados previamente, como el uso del Monolito Modular, la tolerancia a fallos en memoria y el multitenancy seguro.
+
 ### 4.3.1.	Software Architecture System Landscape Diagram
 
-### 4.3.1.	Software Architecture Context Level Diagrams
+El *System Landscape Diagram* proporciona una vista panorámica "a vista de pájaro" del ecosistema tecnológico en el que habita Reqs-AI. A diferencia de un simple diagrama de contexto que solo mira hacia adentro, este diagrama ilustra cómo nuestro sistema principal (agrupado dentro de los límites de la empresa *Kntro-Soft Enterprise*) interactúa no solo con los usuarios, sino también con el entorno de herramientas de terceros que el usuario final ya utiliza en su día a día corporativo.
 
-### 4.3.2.	Software Architecture Container Level Diagrams
+A continuación, se presenta la topología del paisaje del sistema:
 
-### 4.3.3.	Software Architecture Deployment Diagrams
+![SystemLandscapeDiagram](assets/4.Strategic-Level-Product-Design/4.3.Software-Arquitecture/System-landscape.png)
+
+**Análisis de Interacciones en el Ecosistema:**
+
+1.  **Límite Empresarial Kntro-Soft Enterprise:** Agrupa a nuestros actores principales (Technical Lead y Enterprise Analyst) interactuando centralmente con el **ReqsAI System**. Este es el núcleo de valor donde se graban las reuniones, se analizan los requerimientos y se estructuran en historias de usuario.
+2.  **Proveedores de Inteligencia y Procesamiento (Core Dependencies):** En la parte inferior, observamos las dependencias críticas (SaaS) que Reqs-AI delega para cumplir sus objetivos complejos:
+    *   **STT API (Speech-to-Text):** Recibe los fragmentos de audio en tiempo real y devuelve el texto.
+    *   **LLM API (Large Language Model):** Recibe el contexto del RAG y la transcripción para inferir historias en formato Gherkin.
+    *   **Payment Gateway:** Procesa las transacciones de las suscripciones B2B corporativas.
+3.  **Herramientas de Ecosistema del Cliente (The Landscape Effect):** La verdadera amplitud del ecosistema se observa en los bordes laterales:
+    *   **Project Management Tool Jira:** El diagrama evidencia que el *Technical Lead* gestiona sus Sprints directamente en Jira. ReqsAI actúa como un puente inteligente que exporta las historias de usuario aprobadas hacia esta herramienta, cerrando la brecha entre el levantamiento de requerimientos y la ejecución ágil.
+    *   **Email Service Provider:** El *Enterprise Analyst* recibe notificaciones de su organización a través de su proveedor de correo, alimentadas por los eventos disparados desde nuestro sistema.
+
+### 4.3.2.	Software Architecture Context Level Diagrams
+
+### 4.3.3.	Software Architecture Container Level Diagrams
+
+### 4.3.4.	Software Architecture Deployment Diagrams
 
 # Capítulo V: Tactical-Level Software Design
 
