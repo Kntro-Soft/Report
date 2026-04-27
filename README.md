@@ -116,9 +116,9 @@ En esta sección se documenta la colaboración del equipo en la elaboración del
     * [4.2.5.	Context Mapping](#425-context-mapping)
   * [4.3.	Software Architecture](#43-software-architecture)
     * [4.3.1.	Software Architecture System Landscape Diagram](#431-software-architecture-system-landscape-diagram)
-    * [4.3.1.	Software Architecture Context Level Diagrams](#431-software-architecture-context-level-diagrams)
-    * [4.3.2.	Software Architecture Container Level Diagrams](#432-software-architecture-container-level-diagrams)
-    * [4.3.3.	Software Architecture Deployment Diagrams](#433-software-architecture-deployment-diagrams)
+    * [4.3.2.	Software Architecture Context Level Diagrams](#432-software-architecture-context-level-diagrams)
+    * [4.3.3.	Software Architecture Container Level Diagrams](#433-software-architecture-container-level-diagrams)
+    * [4.3.4.	Software Architecture Deployment Diagrams](#434-software-architecture-deployment-diagrams)
 * [Capítulo V: Tactical-Level Software Design](#capítulo-v-tactical-level-software-design)
   * [5.X.	Bounded Context: <Bounded Context Name>](#5x-bounded-context-bounded-context-name)
     * [5.X.1.	Domain Layer](#5x1-domain-layer)
@@ -1370,13 +1370,112 @@ A continuación presentamos la visualización de las relaciones estructurales co
 
 ## 4.3.	Software Architecture
 
+En este capítulo, el equipo detalla la arquitectura de software de Reqs-AI aplicando el modelo C4. Este modelo jerárquico permite documentar el sistema desde su ecosistema más amplio hasta sus componentes desplegables y su entorno de infraestructura final. Todas las decisiones reflejadas en estos diagramas están alineadas con los Atributos de Calidad y Restricciones analizados previamente, como el uso del Monolito Modular, la tolerancia a fallos en memoria y el multitenancy seguro.
+
 ### 4.3.1.	Software Architecture System Landscape Diagram
 
-### 4.3.1.	Software Architecture Context Level Diagrams
+El *System Landscape Diagram* proporciona una vista panorámica del ecosistema tecnológico en el que habita Reqs-AI. A diferencia de un simple diagrama de contexto que solo mira hacia adentro, este diagrama ilustra cómo nuestro sistema principal (agrupado dentro de los límites de la empresa *Kntro-Soft Enterprise*) interactúa no solo con los usuarios, sino también con el entorno de herramientas de terceros que el usuario final ya utiliza en su día a día corporativo.
 
-### 4.3.2.	Software Architecture Container Level Diagrams
+A continuación, se presenta la topología del paisaje del sistema:
 
-### 4.3.3.	Software Architecture Deployment Diagrams
+![SystemLandscapeDiagram](assets/4.Strategic-Level-Product-Design/4.3.Software-Architecture/System-landscape.png)
+
+**Análisis de Interacciones en el Ecosistema:**
+
+1.  **Límite Empresarial Kntro-Soft Enterprise:** Agrupa a nuestros actores principales (Technical Lead y Enterprise Analyst) interactuando centralmente con el **ReqsAI System**. Este es el núcleo de valor donde se graban las reuniones, se analizan los requerimientos y se estructuran en historias de usuario.
+2.  **Proveedores de Inteligencia y Procesamiento (Core Dependencies):** En la parte inferior, observamos las dependencias críticas (SaaS) que Reqs-AI delega para cumplir sus objetivos complejos:
+    *   **STT API (Speech-to-Text):** Recibe los fragmentos de audio en tiempo real y devuelve el texto.
+    *   **LLM API (Large Language Model):** Recibe el contexto del RAG y la transcripción para inferir historias en formato Gherkin.
+    *   **Payment Gateway:** Procesa las transacciones de las suscripciones B2B corporativas.
+3.  **Herramientas de Ecosistema del Cliente (The Landscape Effect):** La verdadera amplitud del ecosistema se observa en los bordes laterales:
+    *   **Project Management Tool Jira:** El diagrama evidencia que el *Technical Lead* gestiona sus Sprints directamente en Jira. ReqsAI actúa como un puente inteligente que exporta las historias de usuario aprobadas hacia esta herramienta, cerrando la brecha entre el levantamiento de requerimientos y la ejecución ágil.
+    *   **Email Service Provider:** El *Enterprise Analyst* recibe notificaciones de su organización a través de su proveedor de correo, alimentadas por los eventos disparados desde nuestro sistema.
+
+### 4.3.2.	Software Architecture Context Level Diagrams
+
+Mientras que el Diagrama Landscape nos mostró el panorama del negocio, el **Diagrama de Contexto (Context Level Diagram)** del modelo C4 cambia el foco hacia el interior, centrando toda la atención arquitectónica exclusivamente en el **Reqs-AI System**. Este diagrama responde a la pregunta de "¿Cuáles son las fronteras inmediatas de nuestra solución?".
+
+A nivel de contexto, eliminamos las interacciones directas entre los usuarios y los sistemas de terceros (ej. el Technical Lead consultando Jira por su cuenta) y nos limitamos a mapear cómo nuestro sistema es el único orquestador responsable de comunicarse con el mundo exterior para cumplir sus objetivos.
+
+![System Context Diagram](assets/4.Strategic-Level-Product-Design/4.3.Software-Architecture/System-Context.png)
+
+**Análisis de Entradas y Salidas del Sistema Central:**
+
+*   **Actores Primarios (Inbound):**
+    *   El **Technical Lead** envía los comandos principales: inicia grabaciones de audio en tiempo real y aprueba las historias generadas.
+    *   El **Enterprise Analyst** administra las organizaciones corporativas (Workspaces), los pagos B2B y sube los glosarios de términos que contextualizan la IA.
+*   **Sistemas de Soporte (Outbound Operacional):**
+    *   **Payment Gateway:** Recibe los datos de transacción para habilitar el uso ilimitado o cuotas Pro de la inteligencia artificial.
+    *   **Email Service Provider:** Recibe peticiones vía REST API para enviar los correos transaccionales de recuperación de contraseña y validación de cuentas.
+*   **Sistemas Core (Outbound Tecnológico):**
+    *   **STT API (Speech-to-Text):** Recibe el streaming continuo de audio de las reuniones y retorna texto fragmentado con latencia inferior a 2 segundos.
+    *   **LLM API (Inteligencia Generativa):** Recibe un *Prompt* complejo inyectado con el texto de la reunión y el glosario del proyecto, devolviendo un bloque JSON estructurado en Gherkin.
+    *   **Project Management Tool:** Recibe las historias de usuario aprobadas y formateadas para crear automáticamente *Issues* en el backlog del equipo (por ejemplo en Jira).
+
+### 4.3.3.	Software Architecture Container Level Diagrams
+
+En esta sección presentamos el diagrama de contenedores (Nivel 2 del modelo C4) para el sistema **ReqsAI**. Este nivel hace un *zoom in* al sistema principal para revelar los contenedores de software que lo componen (aplicaciones móviles, web, APIs, bases de datos), mostrando cómo se distribuyen las responsabilidades, las decisiones tecnológicas de alto nivel y cómo estos componentes se comunican entre sí y con los sistemas externos.
+
+![Container Diagram](assets/4.Strategic-Level-Product-Design/4.3.Software-Architecture/Container.png)
+
+#### Elementos del Diagrama y Distribución de Responsabilidades
+
+El sistema ReqsAI está compuesto por los siguientes contenedores principales:
+
+1.  **Interfaces de Usuario (Frontend):**
+    *   **Web Application** Es la plataforma principal para los usuarios. Permite una visualización completa para el análisis profundo de datos, revisión de historias de usuario, configuración de proyectos y gestión general del sistema. Se eligió **Angular** por ser un framework robusto, ideal para aplicaciones empresariales escalables.
+    *   **Mobile App:** Proporciona accesibilidad móvil a los usuarios, permitiéndoles interactuar con el sistema, grabar reuniones o revisar el estado de los requerimientos desde cualquier lugar. Se optó por **Flutter** para asegurar un desarrollo multiplataforma eficiente (iOS y Android) con una base de código unificada.
+
+2.  **Punto de Entrada y Enrutamiento:**
+    *   **API Gateway:** Actúa como la puerta de entrada única para todas las peticiones (Requests) provenientes de las aplicaciones Web y Móvil. Su responsabilidad es enrutar estas solicitudes hacia los servicios de backend correspondientes, centralizando potencialmente políticas de seguridad, *throttling* y métricas.
+
+3.  **Lógica Core (Backend):**
+    *   **ReqsAI Backend Service** Es el motor central del sistema. Maneja toda la lógica de negocio, coordina las transformaciones de datos y orquesta la comunicación con las APIs de terceros. Se seleccionó **Java con Spring Boot** debido a su madurez, seguridad, facilidad para integraciones empresariales y alto rendimiento.
+
+4.  **Almacenamiento de Datos:**
+    *   **Database** Es la base de datos principal de ReqsAI. Almacena toda la información del dominio (usuarios, configuraciones, transcripciones e historias de usuario). La elección de **PostgreSQL** con la extensión **pgvector** es una decisión estratégica crítica, ya que permite almacenar y consultar *embeddings* vectoriales, facilitando el procesamiento avanzado de IA y las búsquedas semánticas sobre el contexto de los requerimientos.
+
+**Comunicación e Integración de Contenedores**
+
+La arquitectura define un flujo de comunicación moderno y orientado a servicios:
+
+*   **Comunicación Cliente-Servidor:** Tanto la aplicación móvil como la web interactúan con el API Gateway realizando llamadas a través de **HTTPS/REST**, garantizando seguridad en el transporte y un estándar ampliamente adoptado.
+*   **Comunicación Interna:** El API Gateway enruta estas llamadas al *ReqsAI Backend Service*. El backend, a su vez, lee y escribe (*Reads and write*) de manera síncrona en la base de datos PostgreSQL para mantener el estado del sistema.
+*   **Integración con Sistemas Externos:** El Backend Service actúa como el coordinador central que delega tareas específicas a sistemas externos especializados:
+    *   Envía correos a través del **Email Service Provider**.
+    *   Procesa transacciones a través del **Payment Gateway**.
+    *   Envía los audios de las reuniones al **STT API** para convertirlos a texto.
+    *   Delega la inferencia de inteligencia artificial al **LLM API** para la generación de historias de usuario en formato Gherkin.
+    *   Exporta finalmente las historias de usuario aprobadas hacia la herramienta de gestión mediante la **Project Management API** (Jira).
+
+### 4.3.4.	Software Architecture Deployment Diagrams
+
+En esta sección se presenta el diagrama de despliegue, el cual ilustra cómo los contenedores de software de ReqsAI se mapean a la infraestructura física o virtual. Este diagrama detalla los nodos de ejecución, los entornos operativos y la topología de red, priorizando una arquitectura viable, escalable y optimizada en costos.
+
+![Deployment Diagram](assets/4.Strategic-Level-Product-Design/4.3.Software-Architecture/Deployment.png)
+
+**Nodos de Despliegue y Distribución de Componentes**
+
+La infraestructura de despliegue se divide en los entornos de cliente, la infraestructura de procesamiento en AWS, y la persistencia de datos en una nube externa especializada.
+
+1.  **Entorno del Cliente (Client-Side):**
+    *   **Dispositivos físicos (iOS/Android).** Dentro opera el *Flutter Engine*, entorno encargado de ejecutar la aplicación mobile.
+    *   **Computadoras de los usuarios.** Utilizan un navegador web como nodo para renderizar la aplicación web.
+
+2.  **Entorno de Nube - Procesamiento (Server-Side - AWS):**
+    La lógica de negocio se aloja en AWS North America, específicamente en us-east-1 (Virginia), elegida por su alta disponibilidad y optimización de costos.
+    
+    *   **AWS API Gateway:** Actúa como el punto de entrada público único, completamente gestionado. Recibe las llamadas HTTPS/REST de los clientes y enruta las peticiones de manera segura hacia el backend.
+    *   **AWS Elastic Beanstalk:** Es el entorno PaaS (Platform as a Service) encargado de alojar el **ReqsAI Backend Service [Container: Java, Spring Boot]**. Elastic Beanstalk abstrae la complejidad de la infraestructura, aprovisionando servidores EC2 subyacentes, auto-escalado y monitoreo, permitiendo al equipo enfocarse únicamente en el código del runtime de Java.
+
+3.  **Entorno de Nube - Persistencia (Database as a Service):**
+    *   **Base de datos Relacional Principal:** Se delegó el almacenamiento de datos a Supabase, una plataforma BaaS (Backend as a Service). Esta decisión arquitectónica permite aprovechar una base de datos robusta, gestionada y con soporte nativo para *embeddings* vectoriales (esenciales para las funcionalidades de IA), reduciendo drásticamente la carga operativa y los costos iniciales en comparación con mantener instancias tradicionales de bases de datos.
+
+**Comunicación e Interacción de Nodos**
+
+*   Las aplicaciones (Mobile y Web) se comunican vía internet mediante **HTTPS/REST** con el **AWS API Gateway**.
+*   El API Gateway enruta el tráfico internamente hacia el entorno de **AWS Elastic Beanstalk**, donde reside la lógica del sistema.
+*   El backend de Spring Boot se conecta de manera externa y segura hacia el clúster gestionado en **Supabase Cloud** para realizar operaciones de lectura y escritura (*Reads and write*) de la información del dominio.
 
 # Capítulo V: Tactical-Level Software Design
 
