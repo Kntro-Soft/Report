@@ -363,11 +363,392 @@ Deben asegurar que cada requerimiento del cliente esté perfectamente documentad
 
 ### 2.1.1. Análisis competitivo
 
+<table border="1" cellspacing="0" cellpadding="10" style="border-collapse: collapse; width: 100%; text-align: left;">
+  <thead>
+    <tr>
+      <th>Aspecto</th>
+      <th>Reqs-AI</th>
+      <th>Jira + Atlassian Intelligence</th>
+      <th>Notion AI</th>
+      <th>Miro AI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>¿Por qué llevar a cabo este análisis?</strong></td>
+      <td colspan="4">
+        Identificar cómo Reqs-AI puede diferenciarse de las herramientas actuales de documentación,
+        gestión de proyectos y colaboración asistida por inteligencia artificial, especialmente en el
+        proceso de levantamiento de requisitos, generación de historias de usuario y reducción de vacíos
+        de información durante reuniones con clientes.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Nombre</strong></td>
+      <td>Reqs-AI</td>
+      <td>Jira + Atlassian Intelligence</td>
+      <td>Notion AI</td>
+      <td>Miro AI</td>
+    </tr>
+    <tr>
+      <td><strong>Logo</strong></td>
+      <td>
+        <img src="./assets/logos/Reqs-AI-Logo.png" alt="Reqs-AI Logo" width="120">
+      </td>
+      <td>
+        <img src="./assets/logos/Logo-Jira.png" alt="Jira Logo" width="120">
+      </td>
+      <td>
+        <img src="./assets/logos/Logo-Notion.png" alt="Notion AI Logo" width="120">
+      </td>
+      <td>
+        <img src="./assets/logos/Logo-Miro.png" alt="Miro AI Logo" width="120">
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Overview</strong></td>
+      <td>
+        Plataforma SaaS impulsada por inteligencia artificial generativa para asistir el levantamiento
+        de requisitos en tiempo real, generar historias de usuario, criterios de aceptación en formato
+        Gherkin y mantener consistencia con el contexto histórico del proyecto mediante RAG.
+      </td>
+      <td>
+        Herramienta de gestión de proyectos ágiles que permite administrar issues, épicas, sprints y
+        tableros Scrum/Kanban, incorporando capacidades de IA para resumir, generar contenido y apoyar
+        la productividad dentro del ecosistema Atlassian.
+      </td>
+      <td>
+        Plataforma de documentación y organización de conocimiento que integra IA para resumir,
+        redactar, estructurar información y apoyar la creación de documentos colaborativos.
+      </td>
+      <td>
+        Herramienta colaborativa de pizarras digitales que utiliza IA para organizar ideas, sintetizar
+        contenido, generar diagramas y apoyar dinámicas visuales de trabajo en equipo.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Ventaja competitiva</strong></td>
+      <td>
+        Está especializada en el proceso de requirements elicitation, transformando reuniones en
+        requisitos accionables, historias de usuario y criterios de aceptación, además de sugerir
+        preguntas consultivas para evitar información incompleta.
+      </td>
+      <td>
+        Tiene fuerte adopción en equipos ágiles y se integra con herramientas de desarrollo, seguimiento
+        de tareas, planificación de sprints y reportes de avance.
+      </td>
+      <td>
+        Destaca por su flexibilidad para documentar información, organizar bases de conocimiento y crear
+        contenido con asistencia de IA en un entorno simple y colaborativo.
+      </td>
+      <td>
+        Es fuerte en colaboración visual, ideación, workshops, mapas mentales, diagramas y sesiones
+        remotas de descubrimiento de producto.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>¿Qué valor ofrece a los clientes?</strong></td>
+      <td>
+        Reduce la pérdida de información en reuniones con clientes, acelera la documentación de requisitos,
+        mejora la calidad de las historias de usuario y facilita que analistas, product owners y equipos
+        de desarrollo trabajen con información clara y trazable.
+      </td>
+      <td>
+        Permite gestionar el ciclo de trabajo ágil, priorizar tareas, asignar responsables, visualizar
+        avances y mantener seguimiento del backlog del producto.
+      </td>
+      <td>
+        Ayuda a centralizar documentación, crear wikis, resumir información y mantener espacios
+        colaborativos para equipos de trabajo.
+      </td>
+      <td>
+        Facilita sesiones colaborativas visuales para lluvia de ideas, mapeo de procesos, diagramación
+        y organización temprana de conceptos de producto.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Mercado objetivo</strong></td>
+      <td>
+        Empresas de software, analistas de negocio, product owners, startups tecnológicas, consultoras
+        de desarrollo y equipos ágiles que realizan reuniones frecuentes de levantamiento de requisitos.
+      </td>
+      <td>
+        Equipos de desarrollo de software, áreas de producto, Scrum Masters, Project Managers y
+        organizaciones que gestionan proyectos ágiles.
+      </td>
+      <td>
+        Equipos que necesitan documentar información, organizar conocimiento interno, crear reportes,
+        wikis, notas de reuniones y espacios colaborativos.
+      </td>
+      <td>
+        Equipos de diseño, producto, innovación, UX, consultoría y facilitadores de workshops remotos
+        o presenciales.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Estrategias de marketing</strong></td>
+      <td>
+        Posicionamiento como solución especializada para requirements engineering asistido por IA,
+        enfocada en productividad, precisión técnica, reducción de retrabajo y privacidad empresarial
+        mediante arquitectura multitenancy.
+      </td>
+      <td>
+        Estrategia basada en ecosistema empresarial, integraciones con herramientas de desarrollo,
+        adopción ágil y presencia consolidada en compañías tecnológicas.
+      </td>
+      <td>
+        Estrategia centrada en productividad personal y de equipos, facilidad de uso, plantillas,
+        documentación flexible y adopción rápida.
+      </td>
+      <td>
+        Estrategia enfocada en colaboración visual, creatividad, workshops, innovación, diseño de
+        producto y trabajo remoto.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Productos y servicios</strong></td>
+      <td>
+        Plataforma web SaaS con transcripción o registro de reuniones, generación automática de user
+        stories, criterios de aceptación, sugerencias de preguntas, validación de duplicados y contexto
+        inteligente mediante RAG.
+      </td>
+      <td>
+        Gestión de issues, backlogs, épicas, sprints, tableros ágiles, reportes, automatizaciones e
+        integración con herramientas del ecosistema Atlassian.
+      </td>
+      <td>
+        Documentos colaborativos, wikis, bases de datos, plantillas, resúmenes automáticos y generación
+        asistida de contenido con IA.
+      </td>
+      <td>
+        Pizarras colaborativas, diagramas, mapas mentales, plantillas de workshops, organización visual
+        de ideas y funciones de IA para sintetizar información.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Precios y costos</strong></td>
+      <td>
+        Modelo SaaS por suscripción, con planes para equipos pequeños, startups y organizaciones,
+        considerando diferenciación por número de usuarios, proyectos, almacenamiento y uso de IA.
+      </td>
+      <td>
+        Modelo freemium y planes de pago por usuario, orientado a equipos que requieren gestión avanzada
+        de proyectos y escalabilidad empresarial.
+      </td>
+      <td>
+        Modelo freemium con planes personales, de equipo y empresariales, con funciones adicionales de IA
+        bajo planes pagos.
+      </td>
+      <td>
+        Modelo freemium con planes para equipos, empresas y organizaciones que requieren colaboración
+        visual avanzada.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Canales de distribución</strong></td>
+      <td>
+        Plataforma web accesible desde navegador, comercialización directa a empresas de software,
+        alianzas con consultoras tecnológicas y posible estrategia B2B SaaS para equipos ágiles.
+      </td>
+      <td>
+        Distribución mediante plataforma web, marketplace de Atlassian, ventas empresariales y adopción
+        por equipos de desarrollo.
+      </td>
+      <td>
+        Plataforma web y aplicación móvil/escritorio, con adopción directa por usuarios, equipos y empresas.
+      </td>
+      <td>
+        Plataforma web y aplicaciones colaborativas, orientada a equipos de producto, diseño e innovación.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Fortalezas</strong></td>
+      <td>
+        Especialización en levantamiento de requisitos, generación estructurada de historias de usuario,
+        asistencia consultiva en vivo, contexto mediante RAG y enfoque en privacidad empresarial.
+      </td>
+      <td>
+        Alta adopción en la industria, integración con metodologías ágiles, ecosistema robusto y soporte
+        para gestión completa del backlog.
+      </td>
+      <td>
+        Interfaz flexible, facilidad de uso, buena experiencia colaborativa y capacidades amplias para
+        documentación general.
+      </td>
+      <td>
+        Gran capacidad visual, útil para workshops, ideación, diagramación y trabajo colaborativo remoto.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Oportunidades</strong></td>
+      <td>
+        Crecimiento del uso de IA generativa en procesos de software, necesidad de reducir retrabajo por
+        requisitos incompletos y oportunidad de posicionarse en Latinoamérica como solución especializada
+        para equipos de análisis y desarrollo.
+      </td>
+      <td>
+        Mayor adopción de IA dentro de herramientas de gestión ágil y expansión en organizaciones que ya
+        utilizan el ecosistema Atlassian.
+      </td>
+      <td>
+        Crecimiento de la documentación inteligente y adopción de IA para mejorar productividad en equipos
+        multidisciplinarios.
+      </td>
+      <td>
+        Mayor demanda de herramientas visuales para trabajo remoto, descubrimiento de producto y dinámicas
+        colaborativas.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Debilidades</strong></td>
+      <td>
+        Al ser una propuesta nueva, requiere validación con usuarios reales, construcción de confianza,
+        precisión en los resultados generados por IA y evidencia de impacto en proyectos de software.
+      </td>
+      <td>
+        No está especializada en capturar requisitos desde reuniones ni en guiar al analista con preguntas
+        consultivas durante la elicitación.
+      </td>
+      <td>
+        Su IA es generalista y no está enfocada específicamente en ingeniería de requisitos, criterios
+        Gherkin o trazabilidad técnica.
+      </td>
+      <td>
+        Es fuerte para ideación visual, pero no cubre de forma especializada la generación formal de
+        requisitos, historias de usuario o criterios de aceptación.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Amenazas</strong></td>
+      <td>
+        Competencia de plataformas consolidadas que pueden incorporar funciones similares de IA,
+        resistencia de empresas a compartir información sensible en herramientas nuevas y necesidad de
+        demostrar seguridad, precisión y valor frente a soluciones ya adoptadas.
+      </td>
+      <td>
+        Puede expandir sus capacidades de IA hacia la generación de requisitos y reducir el espacio de
+        diferenciación de soluciones emergentes.
+      </td>
+      <td>
+        Puede ser suficiente para equipos pequeños que solo necesitan documentación básica con IA.
+      </td>
+      <td>
+        Puede cubrir etapas iniciales de descubrimiento de producto y competir indirectamente en sesiones
+        de levantamiento colaborativo.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ### 2.1.2. Estrategias y tácticas frente a competidores
+
+En esta sección se detallan las estrategias y tácticas que Reqs-AI aplicará para establecer una ventaja competitiva frente a herramientas de gestión de proyectos, documentación colaborativa y plataformas con inteligencia artificial aplicadas al trabajo de equipos de software.
+
+#### Estrategias para afrontar las fortalezas de los competidores
+
+- Diferenciación por especialización en ingeniería de requisitos:
+Para enfrentar la fortaleza de herramientas como Jira, que cuenta con alta adopción en equipos ágiles y gestión de backlogs, Reqs-AI aplicará la táctica de “levantamiento inteligente de requisitos en tiempo real”. A diferencia de Jira, que se enfoca principalmente en administrar tareas, issues y sprints, Reqs-AI se centrará en la etapa previa: capturar, interpretar y transformar la información de reuniones con clientes en requisitos funcionales, historias de usuario y criterios de aceptación más claros.
+
+#### Estrategia de documentación asistida con contexto del proyecto:
+Frente a plataformas como Notion AI, que destacan por su flexibilidad para redactar y organizar información, Reqs-AI implementará la táctica de “generación contextual basada en RAG”. Esto permitirá que la IA no genere respuestas aisladas, sino que considere información histórica del proyecto, acuerdos anteriores, requisitos existentes y decisiones tomadas previamente, reduciendo duplicidades, contradicciones y vacíos en la documentación.
+
+#### Estrategia de integración con el flujo ágil del equipo:
+Ante competidores consolidados en colaboración visual como Miro AI, Reqs-AI aplicará la táctica de “conversión de ideas en entregables técnicos”. Mientras Miro facilita la ideación y organización visual, Reqs-AI buscará convertir directamente los hallazgos de las reuniones en artefactos accionables para el equipo de desarrollo, como user stories, criterios Gherkin, épicas, funcionalidades priorizadas y preguntas pendientes para el cliente.
+
+#### Estrategias para aprovechar las debilidades de los competidores
+
+- Táctica de preguntas consultivas durante la elicitación:
+Reqs-AI aprovechará la debilidad de herramientas generalistas que no guían activamente al analista durante una reunión. Para ello, incorporará una táctica de “asistente consultivo en vivo”, capaz de sugerir preguntas relevantes cuando detecte ambigüedad, información incompleta o falta de reglas de negocio. Esto permitirá mejorar la calidad del levantamiento de requisitos antes de que el equipo pase a la fase de desarrollo.
+
+#### Estrategia de reducción de retrabajo por requisitos incompletos:
+Muchas herramientas permiten documentar información, pero no necesariamente validan si un requisito está claro, completo o alineado con el contexto del proyecto. Reqs-AI aplicará la táctica de “validación semántica de requisitos”, identificando posibles inconsistencias, requisitos duplicados, criterios de aceptación incompletos o historias de usuario mal estructuradas. Con ello, se busca reducir errores de interpretación y retrabajo en etapas posteriores del proyecto.
+
+- Táctica de trazabilidad entre reunión, requisito e historia de usuario:
+Reqs-AI aprovechará la falta de trazabilidad directa en herramientas de documentación general mediante la táctica de “registro trazable de decisiones”. Cada historia de usuario o criterio generado podrá vincularse con la información de origen de la reunión, permitiendo que analistas, product owners y desarrolladores comprendan de dónde proviene cada requerimiento y por qué fue definido.
+
+#### Contexto de oportunidades y amenazas
+
+- Oportunidades:
+Reqs-AI puede aprovechar el crecimiento del uso de inteligencia artificial generativa en equipos de software, la necesidad de acelerar procesos de documentación y la demanda de herramientas que reduzcan errores en la comunicación entre clientes y equipos técnicos. Además, existe una oportunidad importante en startups, consultoras y equipos ágiles que realizan reuniones frecuentes de descubrimiento, levantamiento de requisitos y refinamiento de backlog.
+
+- Amenazas:
+Una amenaza importante es que plataformas consolidadas como Jira, Notion o Miro incorporen funciones similares de IA para generación de requisitos. Para mitigar este riesgo, Reqs-AI deberá enfocarse en una especialización clara en ingeniería de requisitos, privacidad empresarial, precisión contextual y facilidad de integración con el flujo de trabajo ágil. Asimismo, será necesario construir confianza mediante pruebas con usuarios reales, casos de uso demostrables y resultados medibles en reducción de tiempo de documentación y mejora de calidad de requisitos.
 
 ## 2.2. Entrevistas
 
 ### 2.2.1. Diseño de entrevistas
+
+El diseño de entrevistas se orienta a comprender en profundidad el trabajo real de cada segmento: su contexto, decisiones, tareas, emociones y restricciones operativas. El guion se organiza de forma progresiva para conocer cómo viven hoy el proceso, qué valoran y dónde encuentran más dificultades.
+
+**Segmento 1: Líder Técnico de Startup**
+
+**Inicio y contexto profesional**
+1. ¿Cuál es tu rol actual dentro del equipo y qué nivel de participación tienes en reuniones de discovery con clientes?
+2. ¿Cómo está conformado tu equipo (roles, seniority y metodología) y cómo se reparte la responsabilidad del levantamiento de requisitos?
+3. ¿Qué tipo de proyectos desarrollan y qué restricciones de tiempo o presupuesto suelen condicionar sus decisiones?
+
+**Herramientas, ecosistema e influencias**
+4. ¿Qué stack tecnológico y equipos tecnológicos usan para coordinar reuniones, documentar decisiones y gestionar backlog?
+5. ¿Qué herramientas o marcas influyen más en tu forma de trabajar (por ejemplo Atlassian, Microsoft, AWS, GitHub, Notion) y por qué?
+6. ¿Qué referentes, comunidades, canales o personas influyen en tus decisiones sobre prácticas de análisis de requisitos?
+
+**Flujo actual de trabajo**
+7. Cuéntame paso a paso qué haces desde que se agenda una reunión con cliente hasta que una historia de usuario entra al sprint.
+8. ¿Qué tareas realizas tú, cuáles delegas y cuáles dependen de otros roles para cerrar un requerimiento?
+9. ¿Qué entradas usas en cada etapa (audio, notas, tickets, acuerdos) y qué entregables concretos produces al final?
+
+**Puntos de dolor y fricciones del proceso**
+10. ¿En qué momento del flujo se pierden más detalles críticos o aparecen ambiguedades?
+11. ¿Qué tipo de retrabajo se genera cuando una historia queda incompleta o mal definida?
+12. ¿Qué casos de borde o restricciones técnicas suelen omitirse en la primera conversación y por qué?
+13. ¿Cómo impactan esos errores en tiempo de sprint, esfuerzo del equipo y calidad del resultado?
+
+**Experiencia, motivaciones y expectativas**
+14. ¿Qué te motiva más de liderar esta etapa y qué resultado ideal te gustaría garantizar en cada sesión?
+15. ¿Qué situaciones te generan más frustración durante o después de las reuniones de levantamiento?
+16. Cuando el proceso sale bien, ¿qué te hace pensar "esta reunión sí fue productiva"?
+
+**Recorrido completo y validación de propuesta**
+17. Si describieras tu experiencia de principio a fin, ¿cuáles son tus "momentos críticos" (inicio, caos, decisión, cierre)?
+18. ¿En qué parte del recorrido actual sientes mayor carga mental o riesgo de cometer errores?
+19. Si durante la reunión recibieras sugerencias de preguntas en tiempo real, ¿en qué momento exacto del proceso te ayudaría más?
+20. Si al finalizar obtuvieras historias en Gherkin listas para backlog, ¿qué nivel de precisión y edición manual aceptarías?
+21. Si tuvieras que resumir tu experiencia actual en una frase textual, ¿qué dirías?
+
+**Segmento 2: Analista de Sistemas Enterprise**
+
+**Inicio y contexto profesional**
+1. ¿Cuál es tu responsabilidad principal en el ciclo de requisitos y con qué áreas debes coordinar (negocio, desarrollo, QA, seguridad)?
+2. ¿Qué estándares, políticas o marcos de cumplimiento condicionan la documentación que produces?
+3. ¿Qué tipo de proyectos y stakeholders manejas con mayor frecuencia y qué nivel de complejidad tienen sus sesiones?
+
+**Herramientas, ecosistema e influencias**
+4. ¿Qué plataformas, equipos tecnológicos e integraciones usas para registrar, validar y trazar requisitos?
+5. ¿Qué marcas o proveedores pesan más en la selección de herramientas dentro de tu organización?
+6. ¿Qué referentes internos o externos (comités, líderes, buenas prácticas) influyen en tus decisiones metodológicas?
+
+**Flujo actual de trabajo**
+7. Describe paso a paso tu proceso desde la convocatoria de una reunión hasta la aprobación final del requerimiento.
+8. ¿Qué tareas ejecutas tú directamente y cuáles requieren validación de terceros antes de cerrar un requisito?
+9. ¿Qué evidencias o artefactos debes generar en cada etapa para cumplir trazabilidad y auditoría?
+
+**Puntos de dolor y fricciones del proceso**
+10. ¿Dónde aparecen más errores o retrasos: captura inicial, redacción, validación, transferencia a desarrollo/QA o seguimiento?
+11. ¿Qué consecuencias operativas y de riesgo aparecen cuando hay ambiguedades en los requisitos?
+12. ¿Qué situaciones te obligan a convocar reuniones adicionales y cómo impactan en tus plazos?
+13. ¿Qué parte del proceso te demanda más esfuerzo manual y por qué?
+
+**Experiencia, motivaciones y expectativas**
+14. ¿Qué te motiva profesionalmente cuando logras una especificación clara, trazable y útil para todo el equipo?
+15. ¿Qué te frustra más del proceso actual, incluso cuando se cumplen los procedimientos formales?
+16. ¿Qué señales te indican que una entrevista con stakeholders realmente fue efectiva?
+
+**Recorrido completo y validación de propuesta**
+17. Si dibujaras tu recorrido completo de trabajo, ¿en qué momentos sientes más presión o incertidumbre?
+18. ¿Qué piensa, siente y teme tu área cuando se propone usar IA para asistir la documentación de requisitos?
+19. ¿Qué condiciones de seguridad, privacidad, control y auditoría serían indispensables para evaluar una solución como Reqs-AI?
+20. Si la herramienta sugiriera preguntas en vivo y redactara borradores en tiempo real, ¿qué criterios usarías para aprobar su adopción?
+21. Si tuvieras que dejar una frase textual que resuma tu experiencia actual en este proceso, ¿cuál sería?
 
 ### 2.2.2. Registro de entrevistas
 
@@ -377,21 +758,119 @@ Deben asegurar que cada requerimiento del cliente esté perfectamente documentad
 
 ### 2.3.1. User personas
 
+Esta sección presenta los arquetipos de usuario de Reqs-AI, construidos a partir del análisis de entrevistas realizadas a profesionales del levantamiento de requisitos y del estudio del contexto operativo en startups y entornos enterprise.
+Los user personas sintetizan patrones de comportamiento, objetivos, frustraciones y necesidades clave que luego se conectan con los demás artefactos de needfinding (User Task Matrix, Journey Map, Empathy Map y As-Is Scenario Mapping).
+
+**User persona del segmento de Líder Técnico de Startup**
+
+<img src="assets/requirements/personas/tech-lead.png" alt="User Persona Líder Técnico de Startup" width="800">
+
+**User persona del segmento de Analista de Sistemas Enterprise**
+
+<img src="assets/requirements/personas/analista.png" alt="User Persona Analista de Sistemas Enterprise" width="800">
+
+
 ### 2.3.2. User Task Matrix
+
+En este User Task Matrix se detallan las tareas que realizan los dos segmentos objetivo considerados en Reqs-AI: el Líder Técnico de Startup y el Analista de Sistemas Enterprise. Las tareas descritas corresponden al trabajo real de levantamiento, validación y transferencia de requisitos, y se ejecutan independientemente de la existencia de una herramienta de software.
+
+| **TAREA** | **Diego Alvarado (Líder Técnico de Startup) - Frecuencia** | **Diego Alvarado (Líder Técnico de Startup) - Importancia** | **Analista Enterprise Genérico (Analista de Sistemas Enterprise) - Frecuencia** | **Analista Enterprise Genérico (Analista de Sistemas Enterprise) - Importancia** |
+|---|:---:|:---:|:---:|:---:|
+| Agendar y preparar reuniones de levantamiento de requisitos con stakeholders | always | high | always | high |
+| Escuchar, sintetizar y registrar necesidades funcionales y reglas de negocio durante la reunión | always | high | always | high |
+| Identificar supuestos, restricciones, dependencias y casos de borde | always | high | always | high |
+| Formular preguntas de aclaración para reducir ambiguedad en tiempo real | always | high | always | high |
+| Transformar notas y acuerdos en historias de usuario y criterios de aceptación | always | high | always | high |
+| Estandarizar la redacción de criterios en formato estructurado (por ejemplo, Gherkin) | sometimes | high | always | high |
+| Validar entendimiento con desarrollo y QA antes de comprometer el sprint | always | high | always | high |
+| Gestionar cambios de alcance y negociar prioridades con negocio cuando aparecen nuevas condiciones | sometimes | high | always | high |
+| Mantener trazabilidad de acuerdos, versiones y decisiones para auditoría y control | sometimes | medium | always | high |
+| Revisar grabaciones/minutas y depurar documentación para cerrar vacíos de información | sometimes | medium | always | high |
+| Coordinar reuniones de seguimiento por dudas o contradicciones detectadas después del levantamiento | sometimes | medium | sometimes | high |
+
+
+La principal diferencia está en el enfoque operativo: el Líder Técnico de Startup prioriza velocidad de ejecución y alineación práctica para codificar cuanto antes, mientras que el Analista de Sistemas Enterprise prioriza estandarización, trazabilidad y control de riesgo. Por ello, en el segmento enterprise aumentan la frecuencia e importancia de actividades formales como redacción estructurada, revisión exhaustiva de evidencias y gestión de cambios bajo criterios de gobernanza.
 
 ### 2.3.3. User Journey Mapping
 
+A continuación, se presentan los User Journey Maps As-Is de cada User Persona. Estos mapas permiten visualizar el recorrido end-to-end de ambos segmentos durante el levantamiento y documentación de requisitos en su situación actual (sin la solución), identificando fricciones, puntos de dolor y oportunidades de mejora en cada etapa del proceso.
+
+* User Journey Map de Diego Alvarado (Líder Técnico de Startup):
+
+  ![User Journey Map del User Persona Diego Alvarado](assets/requirements/maps/journey-maps/tech-lead.png)
+
+* User Journey Map de Analista Enterprise Genérico (Analista de Sistemas Enterprise):
+
+  ![User Journey Map del User Persona Analista Enterprise Genérico](assets/requirements/maps/journey-maps/analyst.png)
+
 ### 2.3.4. Empathy Mapping
+
+Se elaboraron los Empathy Maps para los dos User Personas priorizados: el Líder Técnico de Startup y el Analista de Sistemas Enterprise. Este proceso permitió profundizar en lo que cada segmento dice, piensa, hace, observa y escucha durante el levantamiento de requisitos, identificando sus principales pains y gains para orientar el diseño de una solución realmente alineada con su contexto operativo.
+
+#### Líder Técnico de Startup
+
+![Empathy Mapping - Tech Lead](assets/requirements/maps/empathy-maps/tech-lead.png)
+
+#### Analista de Sistemas Enterprise
+
+![Empathy Mapping - Analyst](assets/requirements/maps/empathy-maps/analyst.png)
 
 ### 2.3.5. As-is Scenario Mapping
 
+El equipo elaboró los As-Is Scenario Mapping mediante preparación, lluvia de ideas individual y revisión conjunta por segmento. Con base en entrevistas y artefactos previos, se definieron las fases del recorrido actual de cada User Persona en las filas Steps, Doing, Thinking y Feeling, representando la situación actual sin la solución propuesta.
+
+Además, se identificaron áreas positivas, negativas y blank areas para ubicar con precisión los puntos de mayor impacto operativo y emocional en cada segmento.
+
+**As-Is Scenario Mapping de Diego Alvarado (Líder Técnico de Startup)**
+
+![As-Is Scenario Mapping - Tech Lead](assets/requirements/maps/as-is-scenarios/tech-lead.png)
+
+**As-Is Scenario Mapping de Analista Enterprise Genérico (Analista de Sistemas Enterprise)**
+
+![As-Is Scenario Mapping - Analyst](assets/requirements/maps/as-is-scenarios/analyst.png)
+
 ## 2.4. Ubiquitous Language
+
+En esta sección se presenta el glosario del dominio de negocio de Reqs-AI, redactado con términos en inglés (y su equivalente en español) para mantener una comunicación consistente y sin ambigüedades entre analistas, líderes técnicos, negocio, QA y demás stakeholders. Este lenguaje ubicuo se centra en el proceso de levantamiento, validación y gobernanza de requisitos en entornos startup y enterprise.
+
+| Term | Equivalente | Definición |
+|---|---|---|
+| Stakeholder | Interesado / Parte interesada | Persona o área que influye, decide o se ve impactada por un requerimiento del proyecto. |
+| Requirement | Requerimiento | Necesidad del negocio o del usuario que debe quedar descrita de forma clara para guiar la implementación y validación. |
+| Requirement Elicitation | Levantamiento de requerimientos | Proceso de recopilar información con el cliente y actores clave para entender qué problema se debe resolver. |
+| Discovery Session | Sesión de descubrimiento | Reunión inicial en la que se explora el problema, objetivos, contexto y restricciones del requerimiento. |
+| Business Rule | Regla de negocio | Condición o política del negocio que determina cómo debe comportarse un proceso o una funcionalidad. |
+| Acceptance Criteria | Criterios de aceptación | Condiciones verificables que definen cuándo un requerimiento se considera correctamente cumplido. |
+| Edge Case | Caso borde | Situación excepcional o poco frecuente que puede afectar el resultado esperado y debe ser considerada en el análisis. |
+| Assumption | Supuesto | Condición que se da por cierta temporalmente cuando no existe confirmación explícita en la reunión. |
+| Dependency | Dependencia | Elemento externo (área, dato, aprobación o acceso) del cual depende la ejecución de un requerimiento. |
+| Constraint | Restricción | Límite de negocio, tiempo, regulación o presupuesto que condiciona cómo se puede ejecutar una solución. |
+| Scope | Alcance | Conjunto de entregables y límites funcionales acordados para una iniciativa o requerimiento. |
+| Scope Change | Cambio de alcance | Modificación posterior del alcance originalmente acordado que impacta tiempo, costo o prioridades. |
+| Decision Maker | Decisor | Stakeholder con autoridad final para aprobar, rechazar o redefinir un requerimiento. |
+| Approval | Aprobación | Confirmación formal de que un requerimiento y sus criterios están listos para pasar a ejecución. |
+| Requirement Traceability | Trazabilidad de requerimientos | Capacidad de seguir un requerimiento desde su origen hasta su validación final, incluyendo cambios y decisiones. |
+| Minutes of Meeting | Acta de reunión | Registro formal de acuerdos, pendientes y decisiones tomadas durante una sesión con stakeholders. |
+| Clarification Meeting | Reunión de aclaración | Reunión adicional convocada para resolver ambigüedades o contradicciones detectadas después del levantamiento inicial. |
+| Rework | Retrabajo | Esfuerzo adicional causado por requisitos incompletos, ambiguos o mal interpretados en etapas previas. |
+| Requirement Governance | Gobernanza de requerimientos | Conjunto de prácticas para asegurar estandarización, calidad, control de cambios y cumplimiento en la gestión de requerimientos. |
+| Business Alignment | Alineación de negocio | Grado en que todos los stakeholders comparten la misma interpretación sobre el problema y la solución esperada. |
 
 # Capítulo III: Requirements Specification
 
 ## 3.1. To-Be Scenario Mapping
 
-En esta sección se presenta el mapeo del escenario futuro (To-Be), el cual ilustra el flujo de trabajo optimizado que experimentarán los usuarios al adoptar Reqs-AI. A diferencia del proceso manual y tedioso de la toma de requisitos tradicional (As-Is), este nuevo escenario destaca cómo la inteligencia artificial asiste proactivamente durante las reuniones con los clientes, automatiza la redacción bajo estándares ágiles y facilita la sincronización directa con herramientas de gestión como Jira. El objetivo principal es visualizar la reducción drástica de tiempos operativos, la mitigación de errores de interpretación y la entrega de valor desde el primer contacto.
+Para elaborar el To-Be Scenario Mapping, el equipo partió de los recorridos As-Is de ambos segmentos y proyectó un flujo mejorado con apoyo de Reqs-AI. El objetivo fue reducir ambigüedad, retrabajo y carga manual, manteniendo las mismas fases del proceso para comparar claramente los cambios en las filas Steps, Doing, Thinking y Feeling.
+
+El escenario To-Be propone sesiones de levantamiento con mayor validación en tiempo real, mejor estandarización de criterios de aceptación y trazabilidad más sólida para la transferencia hacia desarrollo y QA.
+
+**To-Be Scenario Mapping de Diego Alvarado (Líder Técnico de Startup)**
+
+![To-Be Scenario Mapping - Tech Lead](assets/requirements/maps/to-be-scenarios/tech-lead.png)
+
+**To-Be Scenario Mapping de Analista Enterprise Genérico (Analista de Sistemas Enterprise)**
+
+![To-Be Scenario Mapping - Analyst](assets/requirements/maps/to-be-scenarios/analyst.png)
 
 ## 3.2. User Stories
 
@@ -713,3 +1192,4 @@ Las historias de usuario, junto con sus estimaciones en Story Points, Criterios 
 
 # Anexos
 
+1. Relative Cost of Fixing Defects (IBM System Science Institute) ![IBM.png](assets/annexes/IBM.png)  
