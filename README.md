@@ -818,6 +818,18 @@ Se elaboraron los Empathy Maps para los dos User Personas priorizados: el Líder
 
 ### 2.3.5. As-is Scenario Mapping
 
+El equipo elaboró los As-Is Scenario Mapping mediante preparación, lluvia de ideas individual y revisión conjunta por segmento. Con base en entrevistas y artefactos previos, se definieron las fases del recorrido actual de cada User Persona en las filas Steps, Doing, Thinking y Feeling, representando la situación actual sin la solución propuesta.
+
+Además, se identificaron áreas positivas, negativas y blank areas para ubicar con precisión los puntos de mayor impacto operativo y emocional en cada segmento.
+
+**As-Is Scenario Mapping de Diego Alvarado (Líder Técnico de Startup)**
+
+![As-Is Scenario Mapping - Tech Lead](assets/requirements/maps/as-is-scenarios/tech-lead.png)
+
+**As-Is Scenario Mapping de Analista Enterprise Genérico (Analista de Sistemas Enterprise)**
+
+![As-Is Scenario Mapping - Analyst](assets/requirements/maps/as-is-scenarios/analyst.png)
+
 ## 2.4. Ubiquitous Language
 
 En esta sección se presenta el glosario del dominio de negocio de Reqs-AI, redactado con términos en inglés (y su equivalente en español) para mantener una comunicación consistente y sin ambigüedades entre analistas, líderes técnicos, negocio, QA y demás stakeholders. Este lenguaje ubicuo se centra en el proceso de levantamiento, validación y gobernanza de requisitos en entornos startup y enterprise.
