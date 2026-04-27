@@ -67,6 +67,10 @@ En esta sección se documenta la colaboración del equipo en la elaboración del
 * URL del repositorio del Project Report en la organización de GitHub del equipo:
 * [https://github.com/Kntro-Soft/Report](https://github.com/Kntro-Soft/Report)
 
+TB1:
+
+![InsightsTB1](assets/Insights/insightsTB1.png)
+
 <div style="page-break-before: always"></div>
 
 # Contenido
