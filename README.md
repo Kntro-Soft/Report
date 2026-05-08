@@ -1281,35 +1281,45 @@ Para establecer una base sólida en el diseño guiado por el dominio (DDD) y fac
 
 La sesión se estructuró siguiendo una agenda iterativa para construir el modelo de forma progresiva:
 
-1. **Domain Events (Eventos de Dominio):** Iniciamos la sesión identificando y ordenando cronológicamente en post-its naranjas los hechos relevantes que ya han ocurrido en el sistema (verbos en participio pasado). La línea de tiempo abarcó desde Organización Registrada y Suscripción Pagada, pasando por el núcleo operativo, hasta eventos de cierre como Historias Exportadas a Jira.
+1. **Domain Events:** Iniciamos la sesión identificando en post-its naranjas los hechos relevantes que ocurren en el sistema (escritos como verbos en participio pasado). En esta etapa inicial nos centramos únicamente en la lluvia de ideas de todos los eventos posibles sin preocuparnos por el orden temporal exacto.
 
-![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Domain-Events.jpg)
+![Domain Events](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Domain-events.jpg)
 
-2. **Commands (Comandos):** A la izquierda de cada evento naranja, colocamos post-its azules que representan la acción o intención que provocó dicho evento. Por ejemplo, el comando Procesar Audio precede al evento Audio Transcrito, y el comando Generar Historia de usuario precede a Historia de Usuario Generada.
+2. **Timeline:** Una vez identificados los eventos, procedimos a organizarlos cronológicamente, creando una línea de tiempo lógica que abarca desde el registro de la organización hasta la exportación de las historias de usuario aprobadas.
 
-![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Commands.jpg)
+![Timeline](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Timeline.jpg)
 
-5. **Actors and Policies (Actores y Políticas):** Identificamos qué o quién ejecuta los comandos. Utilizamos post-its amarillos pequeños para los actores humanos, destacando a nuestros roles principales: Líder Técnico, Analista Enterprise. Para las acciones automatizadas de nuestro SaaS, usamos post-its lilas (Políticas), redactadas como reacciones.
+3. **Pain Points:** Con la línea de tiempo establecida, analizamos el flujo para identificar cuellos de botella, problemas potenciales o áreas de fricción (representados visualmente para destacar conflictos en el dominio). Esto nos ayudó a visualizar dónde el sistema requería atención especial.
 
-![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Actors-and-Policies.jpg)
+![Pain Points](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Pain-points.jpg)
 
-5. **Blank stickies for Read models and UX mockups:** Para garantizar que el diseño de software contemple la experiencia del usuario, insertamos post-its verdes y blancos vacíos justo antes de las decisiones (comandos) de los actores, marcando los lugares donde el usuario necesita información antes de actuar.
+4. **Pivotal Points:** Marcamos los eventos cruciales que representan cambios de estado significativos o transiciones importantes en el ciclo de vida del negocio (por ejemplo, el momento en que se completa el pago o se genera la historia de usuario).
 
-![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Blank-stickies.jpg)
+![Pivotal Points](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Pivotal-points.jpg)
 
-6. **Read models and UX Mockups:** Llenamos los post-its vacíos detallando la información necesaria (post-its verdes), como Estado de Transcripción en Vivo o Dashboard de Consumo de Tokens, y agregamos bocetos rápidos (wireframes en post-its blancos) para visualizar la interfaz de la consola de captura de Reqs-AI.
+5. **Commands and Actors:** A la izquierda de los eventos, colocamos post-its azules que representan la acción o intención (comandos) que provoca dicho evento. Además, identificamos qué o quién ejecuta estos comandos utilizando post-its amarillos pequeños para los actores humanos (como el Líder Técnico o el Analista Enterprise).
 
-![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/RM-and-UX.jpg)
+![Commands and Actors](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Commands.jpg)
 
-7. **External systems (Sistemas Externos):** Mapeamos las dependencias críticas de Reqs-AI utilizando post-its rosados. Los colocamos entre los comandos y los eventos cuando la acción delegaba responsabilidad a un tercero. Fue fundamental para diagramar llamadas a la API de IA (generación de historias), a la pasarela de pago (facturación) y a la API de Jira (exportación).
+6. **Policies:** Para las acciones automatizadas o lógicas reactivas del sistema, utilizamos post-its lilas representando las políticas. **Es importante destacar que en esta etapa es donde se diseñan las soluciones automáticas y reglas de negocio para resolver los Pain Points identificados anteriormente. Por esta razón, los marcadores de Pain Points desaparecen de los diagramas en los siguientes pasos, ya que el diseño del flujo y las políticas han mitigado esos problemas.**
 
-![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/External-services.jpg)
+![Policies](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Policies.jpg)
 
-8. **Aggregates and Business Rules (Agregados y Reglas de Negocio):** Esta fue la etapa más crítica del diseño. Añadimos post-its amarillos rectangulares entre los comandos y los eventos para documentar las Reglas de Negocio (Business Rules) requeridas, definiendo precondiciones, postcondiciones e invariantes
+7. **Read Models:** Insertamos post-its verdes detallando la información necesaria que el usuario debe visualizar antes de tomar una decisión o ejecutar un comando (por ejemplo, el Dashboard de Consumo de Tokens o la vista de transcripción).
 
-![Event Storming](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Aggregates.jpg)
+![Read Models](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Read-Models.jpg)
 
-El resultado de la sesión de Design-Level Event Storming fue un mapa exhaustivo y altamente estructurado del dominio de Reqs-AI. Pasamos de una simple línea de tiempo a un conjunto de Agregados claramente definidos, destacando Aggregates críticos como Organization (para el multitenancy), Subscription, Session y UserStory.
+8. **External Services:** Mapeamos las dependencias críticas de Reqs-AI utilizando post-its rosados. Los colocamos entre los comandos y los eventos cuando la acción delega responsabilidad a un tercero (API de IA para LLM, pasarela de pago para Billing, y API de Jira para exportación).
+
+![External Services](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/External-services.jpg)
+
+9. **Aggregates:** Como última capa de agrupación estructural, añadimos post-its amarillos grandes alrededor de los comandos, eventos y modelos de lectura asociados para documentar los Agregados (Aggregates). Estos definen las entidades transaccionales clave y las fronteras de consistencia de datos dentro del dominio.
+
+![Aggregates](assets/4.Strategic-Level-Product-Design/4.2.Strategic-Level-DDD/4.2.1.EventStorming/Aggregates.jpg)
+
+El resultado de la sesión de Design-Level Event Storming fue un mapa exhaustivo y altamente estructurado del dominio de Reqs-AI. Pasamos de una simple lluvia de ideas a un conjunto de Agregados claramente definidos.
+
+El paso final metodológico del Event Storming, que consiste en agrupar estos Agregados dentro de las fronteras lógicas de los Bounded Contexts correspondientes, se abordará en detalle en la siguiente sección, donde evaluaremos las relaciones semánticas y cohesivas para definir la arquitectura final del dominio.
 
 ### 4.2.2.	Candidate Context Discovery
 
