@@ -1583,7 +1583,7 @@ El sistema Reqs-AI está compuesto por los siguientes contenedores principales:
 La arquitectura define un flujo de comunicación moderno y orientado a servicios:
 
 *   **Comunicación Cliente-Servidor (Internet):** Tanto la aplicación móvil como la web interactúan inicialmente con el **CDN & Reverse Proxy (CloudFront)** a través de **HTTPS**. El proxy inverso sirve la Web App (Angular) y enruta las llamadas de datos hacia el **API Gateway**. Todo el tráfico utiliza conexiones seguras (REST y WebSockets para el streaming de audio).
-*   **Comunicación Interna:** El API Gateway enruta las llamadas procesadas hacia el *Reqs-AI Backend Application*. Internamente, los Bounded Contexts se comunican mediante eventos en memoria (Domain Events) y persisten su estado de manera síncrona en la base de datos compartida (PostgreSQL).
+*   **Comunicación Interna:** La API Gateway enruta las llamadas procesadas hacia el *Reqs-AI Backend Application*. Internamente, los Bounded Contexts se comunican mediante eventos en memoria (Domain Events) y persisten su estado de manera síncrona en la base de datos compartida (PostgreSQL).
 *   **Integración con Sistemas Externos:** En lugar de centralizar todas las salidas, las integraciones están descentralizadas y asignadas al Bounded Context correspondiente que las necesita:
     *   **IAM** envía credenciales y alertas a través del **Email Service Provider**.
     *   **Billing & Subscription** procesa transacciones a través del **Payment Gateway**.
@@ -1600,7 +1600,7 @@ En esta sección se presenta el diagrama de despliegue, el cual ilustra cómo lo
 
 La infraestructura de despliegue se divide en los entornos de cliente, la red de entrega perimetral (Edge), la infraestructura de procesamiento core y la persistencia de datos.
 
-1.  **Entorno del Cliente (Client-Side):**
+1.  **En el lado del cliente:**
     *   **Dispositivos físicos (iOS/Android):** Dentro opera el *Flutter Engine*, entorno encargado de ejecutar la aplicación mobile.
     *   **Computadoras de los usuarios:** Utilizan un navegador web como nodo de ejecución para renderizar la aplicación web (Angular).
 
@@ -1611,7 +1611,7 @@ La infraestructura de despliegue se divide en los entornos de cliente, la red de
 3.  **Entorno de Nube - Procesamiento (Server-Side - AWS North America):**
     La lógica de negocio se aloja en AWS North America (us-east-1, Virginia), elegida por su alta disponibilidad y ecosistema completo de servicios.
     *   **AWS API Gateway:** Recibe el tráfico dinámico enrutado desde CloudFront y funciona como el orquestador de las peticiones REST y WebSockets hacia el backend.
-    *   **AWS Elastic Beanstalk:** Es el entorno PaaS (Platform as a Service) encargado de alojar el **Reqs-AI Backend Application**. Elastic Beanstalk abstrae la complejidad de la infraestructura, aprovisionando servidores EC2 subyacentes, auto-escalado y monitoreo, permitiendo al equipo enfocarse únicamente en el código del runtime de Java.
+    *   **AWS Elastic Beanstalk:** Es el entorno PaaS (Platform as a Service) encargado de alojar el **Reqs-AI Backend Application**. Elastic Beanstalk abstrae la complejidad de la infraestructura, aprovisionando servidores EC2 subyacentes, autoescalado y monitoreo, permitiendo al equipo enfocarse únicamente en el código del runtime de Java.
 
 4.  **Entorno de Nube - Persistencia (Database as a Service):**
     *   **Supabase Cloud (PostgreSQL):** Se delegó el almacenamiento a Supabase, una plataforma BaaS (Backend as a Service). Esta decisión permite aprovechar una base de datos PostgreSQL robusta, gestionada y con la extensión **pgvector** nativa (esencial para los *embeddings* y RAG de los requerimientos), reduciendo drásticamente la carga operativa y los costos.
@@ -1620,7 +1620,7 @@ La infraestructura de despliegue se divide en los entornos de cliente, la red de
 
 *   Las aplicaciones (Mobile y Web) se comunican vía internet mediante **HTTPS** con el **Amazon CloudFront** ubicado en el *Edge Location* más cercano.
 *   CloudFront sirve los recursos estáticos web directamente y enruta las solicitudes API hacia el **AWS API Gateway** en la región de AWS North America.
-*   El API Gateway enruta el tráfico internamente hacia el entorno de **AWS Elastic Beanstalk**, donde reside la lógica del Monolito Modular.
+*   La API Gateway enruta el tráfico internamente hacia el entorno de **AWS Elastic Beanstalk**, donde reside la lógica del Monolito Modular.
 *   El backend de Spring Boot se conecta de manera externa y segura hacia el clúster gestionado en **Supabase Cloud** para realizar operaciones transaccionales (*Reads and writes*) sobre la base de datos compartida.
 
 # Capítulo V: Tactical-Level Software Design
