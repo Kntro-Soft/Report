@@ -1,4 +1,4 @@
-﻿<body>
+<body>
     <div style="text-align: center; font-weight: bolder">
         <p>Universidad Peruana de Ciencias Aplicadas - Ingeniería de Software - 8 Ciclo</p>
         <img src="assets/brand/logo-upc.png" alt="logo of UPC"/>
@@ -2479,6 +2479,10 @@ Esta capa contiene las implementaciones técnicas de los puertos definidos en la
 ### 5.1.7. Bounded Context Software Architecture Code Level Diagrams
 
 #### 5.1.7.1. Bounded Context Domain Layer Class Diagrams
+
+En esta sección se presenta el diagrama de clases UML del Domain Layer del BC IAM. Incluye los tres Aggregate Roots, los Value Objects, las enumeraciones y los Domain Events, con visibilidades completas, multiplicidades y relaciones de herencia, composición y dependencia.
+
+![IAM Domain Class Diagram](assets/diagrams/iam/iam-class.png)
 
 #### 5.1.7.2. Bounded Context Database Design Diagram
 
