@@ -2476,6 +2476,10 @@ Esta capa contiene las implementaciones técnicas de los puertos definidos en la
 
 ### 5.1.6. Bounded Context Software Architecture Component Level Diagrams
 
+En esta sección se presenta el diagrama de componentes C4 (Nivel 3) del BC IAM. El container es el módulo Spring Modulith completo. Los componentes reflejan la descomposición por capas y sus interacciones principales.
+
+![IAM Component Diagram](assets/diagrams/iam/iam-component.png)
+
 ### 5.1.7. Bounded Context Software Architecture Code Level Diagrams
 
 #### 5.1.7.1. Bounded Context Domain Layer Class Diagrams
@@ -2485,6 +2489,10 @@ En esta sección se presenta el diagrama de clases UML del Domain Layer del BC I
 ![IAM Domain Class Diagram](assets/diagrams/iam/iam-class.png)
 
 #### 5.1.7.2. Bounded Context Database Design Diagram
+
+En esta sección se presenta el diagrama de base de datos del BC IAM. Incluye las tres tablas que persisten los Aggregate Roots, con sus columnas, constraints y relaciones. El VO `Email` se persiste como columna embebida en `accounts`. El VO `UserPreferences` se persiste como columnas embebidas en `users`.
+
+![IAM Database Diagram](assets/diagrams/iam/iam-database.png)
 
 ## 5.2. Bounded Context: Billing and Subscriptions
 
