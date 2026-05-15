@@ -6,23 +6,15 @@ top to bottom direction
 title IAM Bounded Context -- Tactical Class Diagram
 ' ── Legend ─────────────────────────────────────────────────────────
 legend top right
-  |= Estereotipo                                               |= Tipo DDD                     |
+  |= Elemento                                                 |= Significado                  |
   |<$REQSAI_NAVY_800><color:#FFFFFF><b> <<Aggregate Root>> </b></color>| Raiz de aggregate             |
   |<$REQSAI_GREEN_900><color:#FFFFFF><b> <<Value Object>> </b></color> | Record inmutable y validado   |
   |<$REQSAI_VIOLET_900><color:#FFFFFF><b> <<Enum>> </b></color>        | Enumeracion de dominio        |
   |<$REQSAI_BROWN_900><color:#FFFFFF><b> <<Domain Event>> </b></color> | Evento de dominio (inmutable) |
   |<$REQSAI_GRAY_700><color:#FFFFFF><b> <<Abstract>> </b></color>      | Clase abstracta Shared Kernel |
-  |<$REQSAI_BLUE_800><color:#FFFFFF><b> <<Handler>> </b></color>        | Caso de uso (application)     |
-  |<$REQSAI_TEAL_900><color:#FFFFFF><b> <<Port>> </b></color>           | Puerto (interface)            |
-  |<$REQSAI_ORANGE_900><color:#FFFFFF><b> <<Adapter>> </b></color>      | Adaptador (infrastructure)    |
-  |<$REQSAI_PURPLE_700><color:#FFFFFF><b> <<Controller>> </b></color>   | Entrada HTTP (interfaces)     |
-  |<$REQSAI_LIGHTBLUE_800><color:#FFFFFF><b> <<DTO>> </b></color>       | DTO request/response          |
-  |<$REQSAI_GRAY_700><color:#FFFFFF><b> <<Mapper>> </b></color>         | Mapper DTO <-> Command/Domain |
-  |<$REQSAI_NEUTRAL_900><color:#FFFFFF><b> <<Security>> </b></color>    | Seguridad / filtros           |
   |<back:$REQSAI_NEUTRAL_200><b>Relacion</b>|<back:$REQSAI_NEUTRAL_200><b>Significado</b>|
   | --\\|>            | extends (herencia)                     |
   | ..>              | uses / depends on                      |
-  | ..|>             | implements (interface)                 |
   | o--              | referencia por ID (cross-aggregate)    |
   | ..> <<publishes>>| evento publicado por el aggregate      |
 endlegend
