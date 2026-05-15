@@ -18,126 +18,133 @@ legend top right
   | ..> <<publishes>>| evento publicado por el aggregate      |
 endlegend
 
-' ── Shared Kernel ──────────────────────────────────────────────────
-abstract class AbstractAggregateRoot<T> <<Abstract>> {
-  # createdAt : Instant
-  # updatedAt : Instant
-  # createdBy : String
-  # updatedBy : String
-  --
-  + getIdValue() : String
-  + isNew() : boolean
+package "Shared Kernel" {
+  abstract class AbstractAggregateRoot<T> <<Abstract>> {
+    # createdAt : Instant
+    # updatedAt : Instant
+    # createdBy : String
+    # updatedBy : String
+    --
+    + getIdValue() : String
+    + isNew() : boolean
+  }
 }
 
-' ── Aggregate Roots ────────────────────────────────────────────────
-class Account <<Aggregate Root>> {
-  - id : AccountId
-  - email : Email
-  - passwordHash : String
-  - status : AccountStatus
-  - verificationCode : String
-  - verificationCodeExpiresAt : Instant
-  --
-  # Account()
-  + Account(email : Email, passwordHash : String)
-  ..Business Methods..
-  + verifyEmail(code : String, now : Instant) : void
-  + changePassword(newPasswordHash : String) : void
-  + suspend() : void
-  + activate() : void
-  + delete() : void
-  + generateVerificationCode(code : String, expiresAt : Instant) : void
-  ..Query Methods..
-  + isPendingVerification() : boolean
-  + isActive() : boolean
-  + isSuspended() : boolean
-  + isDeleted() : boolean
+package "com.kntrosoft.reqsai.iam.domain.model.aggregates" {
+  class Account <<Aggregate Root>> {
+    - id : AccountId
+    - email : Email
+    - passwordHash : String
+    - status : AccountStatus
+    - verificationCode : String
+    - verificationCodeExpiresAt : Instant
+    --
+    # Account()
+    + Account(email : Email, passwordHash : String)
+    ..Business Methods..
+    + verifyEmail(code : String, now : Instant) : void
+    + changePassword(newPasswordHash : String) : void
+    + suspend() : void
+    + activate() : void
+    + delete() : void
+    + generateVerificationCode(code : String, expiresAt : Instant) : void
+    ..Query Methods..
+    + isPendingVerification() : boolean
+    + isActive() : boolean
+    + isSuspended() : boolean
+    + isDeleted() : boolean
+  }
+
+  class User <<Aggregate Root>> {
+    - id : UserId
+    - accountId : AccountId
+    - firstName : String
+    - lastName : String
+    - avatarUrl : String
+    - preferences : UserPreferences
+    --
+    # User()
+    + User(accountId : AccountId, firstName : String, lastName : String)
+    ..Business Methods..
+    + updateProfile(firstName : String, lastName : String, avatarUrl : String) : void
+    + updatePreferences(preferences : UserPreferences) : void
+    ..Query Methods..
+    + getFullName() : String
+  }
+
+  class RefreshToken <<Aggregate Root>> {
+    - id : RefreshTokenId
+    - tokenHash : String
+    - userId : UserId
+    - status : TokenStatus
+    - expiresAt : Instant
+    - revokedAt : Instant
+    --
+    # RefreshToken()
+    + RefreshToken(tokenHash : String, userId : UserId, expiresAt : Instant)
+    ..Business Methods..
+    + revoke(revokedAt : Instant) : void
+    + rotate() : void
+    ..Query Methods..
+    + isValid(now : Instant) : boolean
+    + isExpired(now : Instant) : boolean
+  }
 }
 
-class User <<Aggregate Root>> {
-  - id : UserId
-  - accountId : AccountId
-  - firstName : String
-  - lastName : String
-  - avatarUrl : String
-  - preferences : UserPreferences
-  --
-  # User()
-  + User(accountId : AccountId, firstName : String, lastName : String)
-  ..Business Methods..
-  + updateProfile(firstName : String, lastName : String, avatarUrl : String) : void
-  + updatePreferences(preferences : UserPreferences) : void
-  ..Query Methods..
-  + getFullName() : String
+package "com.kntrosoft.reqsai.iam.domain.model.valueobjects" {
+  class AccountId <<Value Object>>
+  class UserId <<Value Object>>
+  class RefreshTokenId <<Value Object>>
+
+  class Email <<Value Object>> {
+    - value : String
+    --
+    + Email(value : String)
+    + {static} of(value : String) : Email
+    + value() : String
+  }
+
+  class UserPreferences <<Value Object>> {
+    - lastVisitedOrgId : String
+    - lastVisitedProjectId : String
+    --
+    + UserPreferences(lastVisitedOrgId : String, lastVisitedProjectId : String)
+    + lastVisitedOrgId() : String
+    + lastVisitedProjectId() : String
+  }
+
+  enum AccountStatus <<Enum>> {
+    PENDING_VERIFICATION
+    ACTIVE
+    SUSPENDED
+    DELETED
+  }
+
+  enum TokenStatus <<Enum>> {
+    ACTIVE
+    REVOKED
+    EXPIRED
+  }
 }
 
-class RefreshToken <<Aggregate Root>> {
-  - id : RefreshTokenId
-  - tokenHash : String
-  - userId : UserId
-  - status : TokenStatus
-  - expiresAt : Instant
-  - revokedAt : Instant
-  --
-  # RefreshToken()
-  + RefreshToken(tokenHash : String, userId : UserId, expiresAt : Instant)
-  ..Business Methods..
-  + revoke(revokedAt : Instant) : void
-  + rotate() : void
-  ..Query Methods..
-  + isValid(now : Instant) : boolean
-  + isExpired(now : Instant) : boolean
-}
+package "iam/api" {
+  class AccountCreatedEvent <<Domain Event>> {
+    + accountId : String
+    + userId : String
+    + email : String
+    + occurredAt : Instant
+    --
+    + {static} of(accountId : String, userId : String, email : String) : AccountCreatedEvent
+  }
 
-' ── Value Objects ──────────────────────────────────────────────────
-class Email <<Value Object>> {
-  - value : String
-  --
-  + Email(value : String)
-  + {static} of(value : String) : Email
-  + value() : String
-}
-
-class UserPreferences <<Value Object>> {
-  - lastVisitedOrgId : String
-  - lastVisitedProjectId : String
-  --
-  + UserPreferences(lastVisitedOrgId : String, lastVisitedProjectId : String)
-  + lastVisitedOrgId() : String
-  + lastVisitedProjectId() : String
-}
-
-' ── Enums ──────────────────────────────────────────────────────────
-enum AccountStatus <<Enum>> {
-  PENDING_VERIFICATION
-  ACTIVE
-  SUSPENDED
-  DELETED
-}
-
-enum TokenStatus <<Enum>> {
-  ACTIVE
-  REVOKED
-  EXPIRED
-}
-
-' ── Domain Events ──────────────────────────────────────────────────
-class AccountCreatedEvent <<Domain Event>> {
-  + accountId : String
-  + userId : String
-  + email : String
-  + occurredAt : Instant
-  --
-  + {static} of(accountId : String, userId : String, email : String) : AccountCreatedEvent
-}
-
-class EmailVerificationRequestedEvent <<Domain Event>> {
-  + email : String
-  + verificationCode : String
-  + expirationMinutes : int
-  + occurredAt : Instant
-  --
-  + {static} of(email : String, code : String, minutes : int) : EmailVerificationRequestedEvent
+  class EmailVerificationRequestedEvent <<Domain Event>> {
+    + email : String
+    + verificationCode : String
+    + expirationMinutes : int
+    + occurredAt : Instant
+    --
+    + {static} of(email : String, code : String, minutes : int) : EmailVerificationRequestedEvent
+  }
 }
 
 ' ── Inheritance ────────────────────────────────────────────────────
