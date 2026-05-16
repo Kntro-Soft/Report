@@ -5462,191 +5462,96 @@ Los siguientes mock-ups presentan la versión de alta fidelidad de la aplicació
 
 <img src="assets/ui/mobile/mockups/mobile-billing-subscription-screen.png" alt="Mobile Billing & Subscription Screen Mockup" style="width: 400px">
 
-### 6.4.3. Applications User Flow Diagrams
-
 **Web Application User Flow Diagrams**
 
-Los wireflows de la aplicación web de Reqs-AI representan la conexión entre pantallas y estados interactivos del sistema. A diferencia de los wireframes, estos diagramas no solo muestran la estructura visual, sino también cómo el usuario avanza de una acción a otra dentro del flujo: autenticación, creación de workspace, navegación principal, gestión de proyectos, sesiones de descubrimiento, revisión de historias generadas por IA, integraciones, facturación y configuración del equipo.
+Los user flow diagrams de la aplicación web de Reqs-AI representan el recorrido funcional que sigue el usuario dentro de la plataforma. A diferencia de los wireframes y wireflows, estos diagramas permiten observar de forma más directa cómo se conectan las acciones principales del usuario con los módulos del sistema: autenticación, onboarding, creación de workspace, navegación principal, gestión de proyectos, sesiones de descubrimiento, revisión de historias generadas por IA, integraciones, facturación y configuración del equipo.
 
-Cada wireflow incluye una flecha que indica la transición principal entre pantallas, permitiendo validar la continuidad de la experiencia, la coherencia de navegación y la relación entre módulos de la web application.
+Cada user flow evidencia una ruta de uso concreta, mostrando cómo el usuario avanza desde una necesidad inicial hasta una acción final dentro de la web application. Esto permite validar la continuidad de la experiencia, la coherencia entre módulos y la relación entre las pantallas diseñadas.
 
 #### Flujo de autenticación y acceso
 
 ##### Registro hacia inicio de sesión
 
-**Descripción:** El flujo muestra cómo un visitante que se encuentra en la pantalla de registro puede volver al inicio de sesión mediante el enlace de acceso. Esta transición valida la navegación bidireccional entre autenticación y creación de cuenta.
+**Descripción:** Este user flow muestra la transición entre la pantalla de registro y la pantalla de inicio de sesión. El flujo permite validar que un visitante puede crear una cuenta o volver al login si ya cuenta con credenciales, manteniendo una navegación clara en el acceso inicial a Reqs-AI.
 
-<img src="assets/ui/web/wireflows/signup-to-login.png" alt="Registro hacia inicio de sesión" width="100%">
-
-##### Inicio de sesión hacia autenticación con Google
-
-**Descripción:** El flujo evidencia que el usuario puede seleccionar la opción de continuar con Google desde el login. Luego es redirigido al selector de cuenta externo, reduciendo fricción en el acceso.
-
-<img src="assets/ui/web/wireflows/login-to-google-auth.png" alt="Inicio de sesión hacia autenticación con Google" width="100%">
-
-##### Registro hacia autenticación con Google
-
-**Descripción:** El flujo representa la alternativa de crear una cuenta usando Google desde la pantalla de registro. Permite validar que el onboarding también soporta autenticación federada.
-
-<img src="assets/ui/web/wireflows/signup-to-google-auth.png" alt="Registro hacia autenticación con Google" width="100%">
-
-##### Inicio de sesión hacia confirmación de workspace creado
-
-**Descripción:** El flujo muestra que, luego de autenticarse correctamente, el usuario puede ser llevado al estado de confirmación del workspace. Este paso cierra el acceso inicial y conecta con las acciones posteriores del entorno de trabajo.
-
-<img src="assets/ui/web/wireflows/login-to-workspace-created-success.png" alt="Inicio de sesión hacia confirmación de workspace creado" width="100%">
+<img src="assets/ui/web/user-flows/01-authentication-signup-to-login-user-flow.png" alt="Registro hacia inicio de sesión" width="100%">
 
 #### Flujo de onboarding y creación de workspace
 
-##### Confirmación de workspace hacia carga de configuración
+##### Dashboard vacío hacia configuración del workspace
 
-**Descripción:** El flujo inicia en el modal de workspace creado y continúa hacia un estado de construcción del entorno. Valida que el sistema comunica el progreso mientras prepara módulos, contexto de IA y configuración inicial.
+**Descripción:** Este user flow representa el recorrido inicial del usuario cuando aún no tiene un workspace creado. Desde el dashboard vacío, el usuario puede iniciar la creación del espacio de trabajo, seleccionar el caso de uso principal y completar la configuración base para adaptar Reqs-AI a su organización.
 
-<img src="assets/ui/web/wireflows/workspace-created-to-workspace-building-loading.png" alt="Confirmación de workspace hacia carga de configuración" width="100%">
+<img src="assets/ui/web/user-flows/02-onboarding-empty-dashboard-to-workspace-setup-user-flow.png" alt="Dashboard vacío hacia configuración del workspace" width="100%">
 
-##### Workspace creado hacia configuración de tipo de empresa
+##### Creación del workspace hacia confirmación exitosa
 
-**Descripción:** El flujo permite pasar desde el modal de éxito a la configuración del workspace. Se evidencia la selección del tipo de compañía para adaptar la experiencia al contexto de la organización.
+**Descripción:** Este flujo evidencia el proceso de carga y creación del workspace. La pantalla muestra cómo el sistema comunica el avance de configuración y luego confirma que el workspace fue creado correctamente, permitiendo al usuario continuar hacia el entorno principal de trabajo.
 
-<img src="assets/ui/web/wireflows/workspace-created-to-company-type-settings.png" alt="Workspace creado hacia configuración de tipo de empresa" width="100%">
+<img src="assets/ui/web/user-flows/03-workspace-creation-loading-to-success-user-flow.png" alt="Creación del workspace hacia confirmación exitosa" width="100%">
 
-##### Tipo de empresa hacia selección de caso de uso
+#### Flujo de navegación principal y proyectos
 
-**Descripción:** El flujo muestra cómo, después de seleccionar el tipo de organización, el usuario continúa hacia la definición del caso de uso principal. Esta transición ayuda a personalizar el workspace según el objetivo de trabajo.
+##### Home del workspace hacia proyectos
 
-<img src="assets/ui/web/wireflows/company-type-dropdown-to-use-case-selection.png" alt="Tipo de empresa hacia selección de caso de uso" width="100%">
+**Descripción:** Este user flow muestra la navegación desde el dashboard principal del workspace hacia el módulo de proyectos. Permite validar que el usuario puede revisar proyectos activos, acceder a métricas generales y administrar iniciativas asociadas a clientes o productos específicos.
 
-##### Selección de caso de uso hacia formulario de workspace
+<img src="assets/ui/web/user-flows/04-workspace-home-to-projects-user-flow.png" alt="Home del workspace hacia proyectos" width="100%">
 
-**Descripción:** El flujo representa el paso desde la selección de usos del workspace hacia el formulario de creación. Permite validar que el usuario puede completar la configuración general luego de definir su enfoque de trabajo.
+#### Flujo de sesiones de descubrimiento
 
-<img src="assets/ui/web/wireflows/use-case-selection-to-workspace-creation-form.png" alt="Selección de caso de uso hacia formulario de workspace" width="100%">
+##### Sesiones hacia discovery sessions
 
-##### Formulario completo hacia validación de nuevo workspace
+**Descripción:** Este flujo representa la navegación desde la página general de sesiones hacia la vista de discovery sessions. Permite revisar reuniones procesadas, métricas de sesiones, estados de avance y accesos a sesiones asistidas por IA.
 
-**Descripción:** El flujo muestra la acción de crear workspace desde un formulario completado y su transición a una variante de validación. Evidencia cómo la interfaz comunica errores o campos requeridos antes de guardar.
-
-<img src="assets/ui/web/wireflows/workspace-form-to-new-workspace-validation.png" alt="Formulario completo hacia validación de nuevo workspace" width="100%">
-
-##### Estado vacío hacia creación de workspace
-
-**Descripción:** El flujo parte del dashboard sin workspace y lleva al modal de creación. Esta transición valida el onboarding principal cuando el usuario aún no tiene un espacio activo.
-
-<img src="assets/ui/web/wireflows/empty-workspace-to-create-workspace-modal.png" alt="Estado vacío hacia creación de workspace" width="100%">
-
-##### Crear workspace hacia desplegable de tipo de compañía
-
-**Descripción:** El flujo muestra la apertura del selector de tipo de compañía dentro del formulario. Permite comprobar que el usuario puede clasificar su organización antes de finalizar la creación.
-
-<img src="assets/ui/web/wireflows/create-workspace-to-company-type-dropdown.png" alt="Crear workspace hacia desplegable de tipo de compañía" width="100%">
-
-##### Tipo de compañía hacia caso de uso principal
-
-**Descripción:** El flujo evidencia que, al completar la información organizacional, el usuario puede definir el propósito principal del workspace. Esta selección orienta el uso de Reqs-AI hacia requisitos, discovery o planificación.
-
-<img src="assets/ui/web/wireflows/company-type-selection-to-primary-use-case.png" alt="Tipo de compañía hacia caso de uso principal" width="100%">
-
-##### Tamaño de equipo hacia selección de usos principales
-
-**Descripción:** El flujo muestra la selección del tamaño del equipo y su avance hacia la pantalla de casos de uso. Permite validar que el onboarding recopila datos de escala y preferencias funcionales.
-
-<img src="assets/ui/web/wireflows/team-size-dropdown-to-primary-use-cases.png" alt="Tamaño de equipo hacia selección de usos principales" width="100%">
-
-##### Progreso de creación hacia workspace creado
-
-**Descripción:** El flujo representa la transición desde el estado de creación en progreso hasta la confirmación exitosa. Valida que el usuario recibe retroalimentación clara cuando el espacio termina de configurarse.
-
-<img src="assets/ui/web/wireflows/workspace-creation-progress-to-success.png" alt="Progreso de creación hacia workspace creado" width="100%">
-
-##### Workspace creado hacia página principal
-
-**Descripción:** El flujo muestra cómo el usuario pasa desde el modal de éxito hacia el home del workspace. Esta transición permite iniciar la gestión de proyectos, sesiones e insights desde el dashboard.
-
-<img src="assets/ui/web/wireflows/workspace-success-to-workspace-home.png" alt="Workspace creado hacia página principal" width="100%">
-
-#### Flujo de navegación principal e historias de usuario
-
-##### Home del workspace hacia historias de usuario
-
-**Descripción:** El flujo evidencia la navegación desde el dashboard principal hacia el módulo de User Stories. Permite validar el acceso al backlog generado por IA desde el menú lateral.
-
-<img src="assets/ui/web/wireflows/workspace-home-to-user-stories.png" alt="Home del workspace hacia historias de usuario" width="100%">
-
-##### Listado de historias hacia panel de revisión
-
-**Descripción:** El flujo muestra cómo una historia del listado se abre en un drawer de revisión. Allí se visualizan estado, prioridad, confianza de IA, descripción y criterios Gherkin para su aprobación.
-
-<img src="assets/ui/web/wireflows/user-stories-to-story-review-drawer.png" alt="Listado de historias hacia panel de revisión" width="100%">
-
-##### Selector de workspace hacia menú de perfil
-
-**Descripción:** El flujo evidencia dos componentes globales de navegación: el selector de workspace y el menú de perfil. Valida que el usuario puede cambiar contexto y acceder a opciones personales desde la cabecera.
-
-<img src="assets/ui/web/wireflows/workspace-switcher-to-user-profile-menu.png" alt="Selector de workspace hacia menú de perfil" width="100%">
-
-#### Flujo de proyectos y sesiones de descubrimiento
-
-##### Selector de workspace hacia proyectos
-
-**Descripción:** El flujo muestra la transición desde la navegación global hacia la página de proyectos. Permite comprobar que el usuario puede ubicarse en un workspace y administrar sus iniciativas.
-
-<img src="assets/ui/web/wireflows/workspace-switcher-to-projects-page.png" alt="Selector de workspace hacia proyectos" width="100%">
-
-##### Proyectos hacia creación de nuevo proyecto
-
-**Descripción:** El flujo parte del listado de proyectos y abre el modal de creación. Permite validar la captura del nombre, descripción, plantilla y visibilidad del proyecto.
-
-<img src="assets/ui/web/wireflows/projects-page-to-create-project-modal.png" alt="Proyectos hacia creación de nuevo proyecto" width="100%">
-
-##### Menú de perfil hacia sesiones
-
-**Descripción:** El flujo muestra la navegación hacia el módulo de Sessions desde la estructura interna de la aplicación. Permite validar la consulta de reuniones procesadas, métricas y acciones disponibles.
-
-<img src="assets/ui/web/wireflows/profile-menu-to-sessions-page.png" alt="Menú de perfil hacia sesiones" width="100%">
-
-##### Sesiones hacia vista de discovery sessions
-
-**Descripción:** El flujo representa el cambio desde la vista completa de sesiones hacia una vista resumida de discovery sessions. Permite revisar métricas, sesiones recientes y estado de procesamiento.
-
-<img src="assets/ui/web/wireflows/sessions-page-to-discovery-sessions-overview.png" alt="Sesiones hacia vista de discovery sessions" width="100%">
+<img src="assets/ui/web/user-flows/05-sessions-to-discovery-sessions-user-flow.png" alt="Sesiones hacia discovery sessions" width="100%">
 
 ##### Discovery sessions hacia inicio de sesión en vivo
 
-**Descripción:** El flujo muestra cómo el usuario abre el modal para iniciar una sesión de descubrimiento en vivo. Se configuran título, proyecto asociado, modo de facilitación y opciones de captura antes de lanzar la sesión.
+**Descripción:** Este user flow muestra cómo el usuario inicia una sesión de descubrimiento en vivo desde el módulo de sesiones. El flujo valida la configuración previa de la sesión, incluyendo título, proyecto asociado, modo de facilitación y opciones de captura antes de lanzar la reunión asistida por IA.
 
-<img src="assets/ui/web/wireflows/start-live-session-modal.png" alt="Discovery sessions hacia inicio de sesión en vivo" width="100%">
+<img src="assets/ui/web/user-flows/06-discovery-sessions-to-live-session-modal-user-flow.png" alt="Discovery sessions hacia inicio de sesión en vivo" width="100%">
 
-##### Sesiones hacia integraciones
+#### Flujo de historias de usuario generadas por IA
 
-**Descripción:** El flujo evidencia la navegación desde sesiones hacia el módulo de integraciones. Permite conectar los resultados del levantamiento con herramientas externas como Jira, Confluence, GitHub, Slack o Miro.
+##### Historias de usuario hacia revisión detallada
 
-<img src="assets/ui/web/wireflows/sessions-to-integrations-page.png" alt="Sesiones hacia integraciones" width="100%">
+**Descripción:** Este flujo evidencia cómo el usuario accede al detalle de una historia generada por IA desde el listado principal. El panel de revisión permite validar la descripción, prioridad, nivel de confianza, criterios de aceptación en formato Gherkin y acciones de edición o aprobación antes de utilizar la historia en el backlog.
 
-#### Flujo de integraciones, billing y configuración
+<img src="assets/ui/web/user-flows/07-user-stories-to-story-review-user-flow.png" alt="Historias de usuario hacia revisión detallada" width="100%">
+
+#### Flujo de integraciones externas
 
 ##### Integraciones hacia conexión con Jira
 
-**Descripción:** El flujo muestra cómo el usuario inicia la configuración de Jira desde la página de integraciones. El modal guía la autenticación, la conexión del sitio Atlassian y la preparación del mapeo.
+**Descripción:** Este user flow muestra el proceso para conectar Reqs-AI con Jira desde la página de integraciones. El flujo permite validar la autorización, configuración y vinculación con Atlassian para exportar historias aprobadas hacia herramientas ágiles sin copiar información manualmente.
 
-<img src="assets/ui/web/wireflows/integrations-to-jira-connection-modal.png" alt="Integraciones hacia conexión con Jira" width="100%">
+<img src="assets/ui/web/user-flows/08-integrations-to-jira-connection-user-flow.png" alt="Integraciones hacia conexión con Jira" width="100%">
 
-##### Billing hacia configuración del workspace
+#### Flujo de facturación y suscripción
 
-**Descripción:** El flujo conecta la página de facturación con settings. Permite validar que el usuario puede revisar su plan, consumo y método de pago, y luego administrar configuración organizacional.
+##### Gestión de billing y suscripción
 
-<img src="assets/ui/web/wireflows/billing-to-settings-page.png" alt="Billing hacia configuración del workspace" width="100%">
+**Descripción:** Este flujo representa la vista de facturación y suscripción del workspace. Permite revisar el plan activo, el consumo de tokens de IA, los colaboradores activos, el método de pago, el historial de facturas y las acciones de upgrade o administración del plan.
+
+<img src="assets/ui/web/user-flows/09-billing-subscription-management-user-flow.png" alt="Gestión de billing y suscripción" width="100%">
+
+#### Flujo de configuración y equipo
 
 ##### Settings hacia gestión de equipo
 
-**Descripción:** El flujo muestra la navegación desde la configuración general hacia Team Management. Permite administrar miembros, invitaciones, roles, permisos y alertas del equipo.
+**Descripción:** Este user flow muestra la navegación desde la configuración general del workspace hacia la administración del equipo. Permite validar la gestión de miembros, roles, permisos, invitaciones y alertas internas, asegurando control sobre el acceso y las responsabilidades dentro de la organización.
 
-<img src="assets/ui/web/wireflows/settings-to-team-management.png" alt="Settings hacia gestión de equipo" width="100%">
+<img src="assets/ui/web/user-flows/10-settings-to-team-management-user-flow.png" alt="Settings hacia gestión de equipo" width="100%">
 
-##### Gestión de equipo hacia home con notificaciones
+#### Flujo general de la web application
 
-**Descripción:** El flujo evidencia el retorno desde Team Management hacia el dashboard principal, donde se despliega el panel de notificaciones. Permite validar la continuidad de navegación y comunicación de eventos del sistema.
+##### Vista general del user flow completo
 
-<img src="assets/ui/web/wireflows/team-management-to-home-notifications.png" alt="Gestión de equipo hacia home con notificaciones" width="100%">v
+**Descripción:** Este diagrama resume el recorrido global de la web application de Reqs-AI. Integra las rutas principales entre dashboard, proyectos, sesiones, historias de usuario, integraciones, billing y settings, mostrando cómo los módulos se conectan dentro de una experiencia continua y coherente para el usuario.
+
+<img src="assets/ui/web/user-flows/11-complete-web-application-user-flow-overview.png" alt="Vista general del user flow completo" width="100%">
+
 **Mobile Application User Flow Diagrams**
 
 **Autenticación de Usuario y Configuración de Cuenta**
@@ -5681,9 +5586,21 @@ Cada wireflow incluye una flecha que indica la transición principal entre panta
 
 ## 6.5. Applications Prototyping
 
+**Web Application Prototyping**
 
+En esta sección se presenta el prototipo interactivo de alta fidelidad para la aplicación web de Reqs-AI, construido con Figma. El prototipo integra los mock-ups finales en una experiencia navegable que simula el comportamiento real de la plataforma, permitiendo validar la usabilidad, la consistencia visual y la fluidez de las transiciones entre las pantallas principales.
 
-**Mobile Application Prototyping**
+El prototipo web permite recorrer los flujos más importantes del sistema, como el inicio de sesión, la creación del workspace, la navegación por el dashboard, la gestión de proyectos, el inicio de sesiones de descubrimiento, la revisión de historias de usuario generadas por IA, la conexión con Jira, la administración de la suscripción y la configuración del equipo.
+
+<img src="./assets/ui/web/prototype/web-application-prototype.png" alt="Web Application Prototype" width="100%">
+
+**Enlace al prototipo:**
+
+El prototipo interactivo de la aplicación web de Reqs-AI se encuentra disponible en el siguiente enlace: [Reqs-AI Web Application Prototype](https://www.figma.com/proto/UVAwp3YUbl7HdyW36b40d6/Web-application-prototype?node-id=25-16791&p=f&t=eUjvMWP8QbWcmZbl-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=25%3A16791&show-proto-sidebar=1)
+
+El video del prototipo interactivo se encuentra disponible en el siguiente enlace: [Reqs-AI Web Application Prototype Video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202319668_upc_edu_pe/IQDz-JGNFecGR5wGEjgFKkb1Ab_PQSFGMfoLZ4QStDYVWiw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ThYQDY)
+
+*Mobile Application Prototyping**
 
 En esta sección se presentan el prototipo interactivo de alta fidelidad para la aplicación móvil de Reqs-AI, construido con Figma. El prototipo integra los Mock-ups finales en una experiencia navegable que simula el comportamiento real del producto digital, permitiendo validar la usabilidad, la consistencia visual y la fluidez de las transiciones entre pantallas.
 
