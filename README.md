@@ -4940,6 +4940,8 @@ Cumpliendo con los principios de diseño inclusivo y accesibilidad táctil en mo
 
 ### 6.4.2. Applications Wireflow Diagrams
 
+**Web Application Wireflow Diagrams**
+
 Los wireflows de la aplicación web de Reqs-AI representan la conexión entre pantallas y estados interactivos del sistema. A diferencia de los wireframes, estos diagramas no solo muestran la estructura visual, sino también cómo el usuario avanza de una acción a otra dentro del flujo: autenticación, creación de workspace, navegación principal, gestión de proyectos, sesiones de descubrimiento, revisión de historias generadas por IA, integraciones, facturación y configuración del equipo.
 
 Cada wireflow incluye una flecha que indica la transición principal entre pantallas, permitiendo validar la continuidad de la experiencia, la coherencia de navegación y la relación entre módulos de la web application.
@@ -5121,6 +5123,38 @@ Cada wireflow incluye una flecha que indica la transición principal entre panta
 **Descripción:** El flujo evidencia el retorno desde Team Management hacia el dashboard principal, donde se despliega el panel de notificaciones. Permite validar la continuidad de navegación y comunicación de eventos del sistema.
 
 <img src="assets/ui/wireflows/team-management-to-home-notifications.png" alt="Gestión de equipo hacia home con notificaciones" style="width: 800px">
+
+**Mobile Application Wireflow Diagrams**
+
+**Autenticación de usuario y gestión de perfil**
+
+**Descripción:** Este Wireflow detalla el flujo secuencial orientado al objetivo del usuario de iniciar sesión de forma segura y navegar de inmediato hacia la gestión de su cuenta. El diagrama mapea la transición interactiva desde la pantalla de Login centralizada hasta la vista de Settings & Profile, evidenciando la persistencia de la arquitectura de información y la consistencia del menú de navegación inferior durante el desplazamiento ergonómico en la aplicación móvil.
+
+<img src="assets/ui/mobile/wireflows/mobile-login-to-profile-management.png" alt="Mobile Login to Profile Management Wireflow" style="width: 400px">
+
+**Navegación del Dashboard a Live Assistant**
+
+**Descripción:** Este Wireflow ilustra el flujo interactivo diseñado para cumplir con el objetivo del usuario de iniciar o acceder rápidamente a una sesión de elicitación de requerimientos en tiempo real. El diagrama define la transición directa desde el Dashboard principal mediante la barra de navegación inferior hacia la pantalla del Live Assistant, asegurando que el analista pueda monitorear la transcripción y recibir sugerencias inteligentes de la IA de manera inmediata y sin fricciones de navegación.
+
+<img src="assets/ui/mobile/wireflows/mobile-dashboard-to-live-assistant.png" alt="Mobile Dashboard to Live Assistant Wireflow" style="width: 400px">
+
+**Navegación del Dashboard a Review & Export**
+
+**Descripción:** Este Wireflow traza el camino interactivo enfocado en el objetivo del usuario de examinar, validar y exportar los requerimientos generados hacia repositorios externos. El diagrama mapea la navegación desde la vista principal del Dashboard hacia la pantalla de Review & Export, ilustrando cómo la interfaz despliega de forma adaptativa el menú emergente inferior (Bottom Sheet) para facilitar la sincronización táctil con herramientas de gestión de proyectos sin perder el contexto de la aplicación móvil.
+
+<img src="assets/ui/mobile/wireflows/mobile-dashboard-to-review-export.png" alt="Mobile Dashboard to Review & Export Wireflow" style="width: 400px">
+
+**Gestión Integral de Proyectos y Requerimientos**
+
+**Descripción:** Este Wireflow mapea el flujo interactivo de extremo a extremo diseñado para que el analista administre la configuración y los artefactos de un proyecto. El diagrama detalla la ruta secuencial que inicia en el Dashboard, transiciona por el catálogo de Projects Archive mediante la barra de navegación, ingresa a las configuraciones detalladas en Project Settings y culmina en la vista de Project User Stories, demostrando cómo se mantiene la jerarquía visual y la consistencia en el control de estados críticos a través de la aplicación móvil.
+
+<img src="assets/ui/mobile/wireflows/mobile-project-management-flow.png" alt="Mobile Project Management Flow Wireflow" style="width: 400px">
+
+**Navegación de Historias de Usuario a Historial, Integraciones y Facturación**
+
+**Descripción:** Este Wireflow traza el flujo transversal que permite al analista navegar fluidamente entre el control operativo y administrativo del sistema. El diagrama detalla la transición secuencial iniciada en la vista de Project User Stories, pasando secuencialmente a través del menú de navegación inferior hacia Session History para auditar transcripciones previas, luego hacia el Integrations Directory para conectar servicios de comunicación externos, y culminando directamente en Billing & Subscription para la gestión financiera de la cuenta móvil.
+
+<img src="assets/ui/mobile/wireflows/mobile-user-stories-to-history-integrations-billing.png" alt="Mobile User Stories to History, Integrations, Billing Wireflow" style="width: 400px">
 
 ### 6.4.2. Applications Mock-ups
 
