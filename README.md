@@ -4534,7 +4534,63 @@ Este sistema de navegación busca mantener continuidad entre los flujos. El usua
 
 ## 6.3. Landing Page UI Design
 
+El diseño de la interfaz de usuario (UI) para la Landing Page de Reqs-AI ha sido estructurado como el puente directo entre la propuesta de valor técnica de Kntro-Soft y las necesidades cognitivas de nuestros segmentos objetivo. Para lograrlo, traducimos los hallazgos del proceso de Need Finding y la arquitectura de información en una disposición visual que prioriza la claridad, la accesibilidad y el profesionalismo. Cada componente de la interfaz responde a decisiones estratégicas de diseño inclusivo: desde el uso de contrastes tipográficos que guían el flujo de lectura del usuario, hasta una jerarquía visual rigurosa que destaca de inmediato soluciones clave como la documentación instantánea en Gherkin y el asistente consultivo en tiempo real. Así, transformamos los requisitos funcionales de la plataforma en una experiencia digital intuitiva, limpia y optimizada para mitigar la fricción desde el primer punto de contacto.
+
 ### 6.3.1. Landing Page Wireframe
+
+**Hero Section Wireframe**
+
+El Hero Section se posiciona en la parte superior de la página aplicando el principio de proximidad y foco visual, donde un titular de alto contraste comunica instantáneamente la propuesta de valor de Reqs-AI ("Documentación de requisitos asistida por IA en tiempo real"), acompañada de un subtítulo persuasivo y un botón de Call to Action (CTA) altamente accesible. Su disposición está optimizada arquitectónicamente mediante una estructura de una sola columna central en dispositivos móviles para facilitar el scrolling vertical, y un diseño de dos columnas en formato desktop que equilibra el texto con una captura intuitiva de la plataforma, guiando de forma fluida el recorrido visual del usuario sin generar sobrecarga cognitiva.
+
+![Reqs-AI Hero Section Wireframe](./assets/ui/landing/wireframes/hero-section-wireframe.png)
+
+**Benefits Section Wireframe**
+
+Esta sección presenta las funcionalidades clave mediante un diseño modular y limpio que respeta el principio de simplicidad, agrupando cada beneficio (documentación instantánea, asistencia en vivo y contexto inteligente) con un ícono descriptivo para agilizar la consistencia y el reconocimiento visual. En la versión web de escritorio se despliega una cuadrícula horizontal de tres columnas para una lectura comparativa rápida, mientras que en la versión móvil se adapta a una lista vertical de una sola columna que garantiza la adaptabilidad y una navegación táctil cómoda y fluida.
+
+![Reqs-AI Benefits Section Wireframe](./assets/ui/landing/wireframes/benefits-section-wireframe.png)
+
+**Features Section Wireframe**
+
+Esta sección expone el funcionamiento técnico de la plataforma mediante un flujo visual continuo que aplica el principio de secuencia lógica y continuidad. En la versión de escritorio, el proceso se divide en un diseño asimétrico de dos columnas alternadas que guían el recorrido del usuario paso a paso, mientras que la versión móvil lo consolida en una sola columna vertical con espaciados optimizados, asegurando una asimilación intuitiva y una alta legibilidad en pantallas táctiles.
+
+![Reqs-AI Features Section Wireframe](./assets/ui/landing/wireframes/features-section-wireframe.png)
+
+**Target Segments Section Wireframe**
+
+Esta sección expone los públicos objetivos aplicando el principio de contraste y segmentación clara de la información para diferenciar ambos perfiles. En la interfaz de escritorio se despliegan dos tarjetas simétricas en paralelo que permiten una comparativa directa e inmediata, mientras que en la versión móvil se apilan verticalmente para mantener una lectura limpia, un scroll cómodo y una correcta accesibilidad táctil.
+
+![Reqs-AI Target Segments Section Wireframe](./assets/ui/landing/wireframes/target-segments-section-wireframe.png)
+
+**Testimonials Section Wireframe**
+
+Esta sección refuerza la confianza de la plataforma aplicando el principio de prueba social mediante un diseño modular y limpio. En la versión de escritorio, los testimonios se organizan en una cuadrícula horizontal de tres columnas que permite una lectura rápida de las experiencias de los usuarios, mientras que en la versión móvil se adaptan a un carrusel o lista vertical de una sola columna que optimiza el espacio y facilita la navegación táctil.
+
+![Reqs-AI Testimonials Section Wireframe](./assets/ui/landing/wireframes/testimonials-section-wireframe.png)
+
+**Pricing Section Wireframe**
+
+Esta sección presenta los planes de suscripción de la plataforma aplicando el principio de contraste e incentivo visual para guiar la conversión de los distintos segmentos. En la versión de escritorio se despliega una estructura de tres columnas en paralelo destacando el plan "Professional" con una inversión de color (tarjeta negra), mientras que en la versión móvil las tarjetas se apilan verticalmente, manteniendo botones de acción (CTA) amplios y accesibles para una óptima interacción táctil.
+
+![Reqs-AI Pricing Section Wireframe](./assets/ui/landing/wireframes/pricing-section-wireframe.png)
+
+**Contact Section Wireframe**
+
+Esta sección facilita la conversión y el soporte directo aplicando los principios de claridad y accesibilidad en los canales de comunicación. En la interfaz de escritorio, los datos de contacto corporativo (correo electrónico y dirección física) se distribuyen de forma asimétrica junto a una descripción concisa para optimizar el espacio en pantalla, mientras que en la versión móvil los elementos se unifican en un flujo vertical de una sola columna que garantiza un acceso táctil inmediato y libre de fricciones.
+
+![Reqs-AI Contact Section Wireframe](./assets/ui/landing/wireframes/contact-section-wireframe.png)
+
+**Final CTA Section Wireframe**
+
+Esta sección actúa como el cierre de conversión de la página aplicando el principio de foco absoluto y aislamiento visual mediante un fondo oscuro de alto contraste. Su estructura simétrica de una sola columna centralizada, idéntica tanto en la versión de escritorio como en la móvil, elimina cualquier distracción secundaria para dirigir toda la atención del usuario hacia el botón principal de registro ("Get Started Now"), maximizando la accesibilidad y la intención de clic.
+
+![Reqs-AI Final CTA Section Wireframe](./assets/ui/landing/wireframes/final-cta-section-wireframe.png)
+
+**Footer Section Wireframe**
+
+Esta sección consolida el cierre de la página aplicando los principios de consistencia y arquitectura de información estructurada para la navegación secundaria. En la interfaz de escritorio se organiza mediante un diseño de cuadrícula asimétrica multicolumna que separa los derechos de autor y enlaces de redes sociales a la izquierda, distribuyendo de forma limpia las columnas temáticas de enlaces (Producto, Empresa, Soporte y Legal) a la derecha; mientras que en la versión móvil se unifica en una única columna de bloques apilados secuencialmente que optimiza el área táctil y la legibilidad en pantallas compactas.
+
+![Reqs-AI Footer Section Wireframe](./assets/ui/landing/wireframes/footer-section-wireframe.png)
 
 ### 6.3.2. Landing Page Mock-up
 
